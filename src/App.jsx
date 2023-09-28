@@ -14,21 +14,23 @@ function App() {
 
   return (
     <>
-      <h1>
-        hej
-      </h1>
-      <ImageActionBar />
-      <Comment />
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-  <LeftMenu />
-  <TextField />
-  <RightMenu />
-</div>
+        <LeftMenu />
+        <div style={{ height: '200px' }}>
+          <img src={reactLogo} style={{ height: '100px', marginLeft: '80px' }} alt="Logo" />
+          <TextField />
+          <ImageActionBar />
+          <Comment />
+          <ButtonUser/>
+        </div>
+        
+        <RightMenu />
+    </div>
       
-      <ButtonUser/>
       
       
-      <Avatar />
+      
+      
     </>
   )
 }

@@ -4,7 +4,7 @@ import * as s from './style'
 const ImageActionBar = () => {
   return (
     <s.Container>
-      <p>hej</p>
+      <p>Action bar - post</p>
     </s.Container>
   )
 }

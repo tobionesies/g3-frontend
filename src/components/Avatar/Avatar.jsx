@@ -4,7 +4,7 @@ import * as s from './style'
 const Avatar = () => {
   return (
    <s.ImageDiv>
-        <p>Hej</p>
+        <p>Avatar picture</p>
    </s.ImageDiv>
   )
 }
