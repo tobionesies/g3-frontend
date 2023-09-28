@@ -1,10 +1,13 @@
 import React from 'react'
+import * as s from './style'
+
 
 const TextField = () => {
   return (
-    <div>
-      
-    </div>
+    <s.TextFieldDiv>
+        <s.TextInput/>
+    </s.TextFieldDiv>
+     
   )
 }
 

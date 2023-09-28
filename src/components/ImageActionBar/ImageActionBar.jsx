@@ -1,10 +1,11 @@
 import React from 'react'
+import * as s from './style'
 
 const ImageActionBar = () => {
   return (
-    <div>
-      
-    </div>
+    <s.Container>
+      <p>hej</p>
+    </s.Container>
   )
 }
 
