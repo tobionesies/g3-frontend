@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import basket from './assets/basket.jpg'
 import viteLogo from '/vite.svg'
 import ImageActionBar from './components/ImageActionBar/ImageActionBar'
 import Comment from './components/Comment/Comment'
@@ -17,11 +18,13 @@ function App() {
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <LeftMenu />
         <div style={{ height: '200px' }}>
-          <img src={reactLogo} style={{ height: '100px', marginLeft: '80px' }} alt="Logo" />
-          <TextField />
+          <img src={basket} style={{ height: '200px' }} alt="Logo" />
           <ImageActionBar />
-          <Comment />
+          <TextField />
           <ButtonUser/>
+          <Comment />
+          <Comment />
+          
         </div>
         
         <RightMenu />

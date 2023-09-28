@@ -18,7 +18,7 @@ export const ContentDiv = styled.div`
 `;
 
 export const LeftMenuItem = styled.div`
-  width: 80px;
+  width: 200px;
   height: 40px;
   padding: 10px;
   border: solid black 1px;
