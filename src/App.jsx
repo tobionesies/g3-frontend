@@ -18,12 +18,12 @@ function App() {
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <LeftMenu />
         <div style={{ height: '200px' }}>
-          <img src={basket} style={{ height: '200px' }} alt="Logo" />
+          <img src={basket} style={{ height: '200px', paddingTop: '10px' }} alt="Logo" />
           <ImageActionBar />
           <TextField />
           <ButtonUser/>
           <Comment />
-          <Comment />
+         
           
         </div>
         
