@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const LeftMenuDiv = styled.div`
   width: 250px;
   height: 600px;
-  border: solid black 1px;
+  border: solid #c7c7c7 1px;
 `;
 
 export const ContentDiv = styled.div`
@@ -21,7 +21,7 @@ export const LeftMenuItem = styled.div`
   width: 200px;
   height: 40px;
   padding: 10px;
-  border: solid black 1px;
+  
 `;
 
 
