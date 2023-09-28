@@ -1,10 +1,12 @@
 import React from 'react'
+import * as s from './style'
+
 
 const Comment = () => {
   return (
-    <div>
-      
-    </div>
+    <s.CommentDiv>
+       <s.CommentText>Kommentar</s.CommentText>
+    </s.CommentDiv>
   )
 }
 

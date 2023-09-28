@@ -1,10 +1,11 @@
 import React from 'react'
+import * as s from './style'
 
 const Avatar = () => {
   return (
-    <div>
-      
-    </div>
+   <s.ImageDiv>
+        <p>Hej</p>
+   </s.ImageDiv>
   )
 }
 
