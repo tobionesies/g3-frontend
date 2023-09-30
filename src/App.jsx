@@ -1,19 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import FeedPage from './view/FeedPage'
 import LandingPage from './view/LandingPage'
+import { AuthProvider } from './contexts/Context';
 
 function App() {
 
   return (
     <>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/view/FeedPage" element={<FeedPage />} />
-    </Routes>
-      
-      
-      
-      
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/view/FeedPage" element={<FeedPage />} />
+      </Routes>
+    </AuthProvider>
     </>
   )
 }

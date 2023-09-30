@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import LeftMenu from '../components/LeftMenu/LeftMenu'
 import ImageActionBar from '../components/ImageActionBar/ImageActionBar'
 import TextField from '../components/TextField/TextField'
@@ -6,10 +6,13 @@ import ButtonUser from '../components/Button/ButtonUser'
 import Comment from '../components/Comment/Comment'
 import basket from '../assets/basket.jpg'
 import RightMenu from '../components/RightMenu/RightMenu'
+import { AuthContext } from '../contexts/Context'
 
 const FeedPage = () => {
+  const {userLoginName} = useContext(AuthContext)
   return (
     <div>
+      <h2>Logged in as {userLoginName}</h2>
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
        <LeftMenu />
         <div style={{ height: '200px' }}>
