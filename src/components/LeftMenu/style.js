@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const LeftMenuDiv = styled.div`
   width: 250px;
   height: 600px;
-  border: solid #c7c7c7 1px;
+  border-right: solid #c7c7c7 1px;
 `;
 
 export const ContentDiv = styled.div`
