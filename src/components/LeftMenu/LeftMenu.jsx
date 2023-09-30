@@ -1,6 +1,7 @@
 import React from 'react'
 import * as s from './style'
 import Avatar from '../Avatar/Avatar'
+import ButtonUser from '../Button/ButtonUser'
 
 const LeftMenu = () => {
   return (
@@ -9,10 +10,11 @@ const LeftMenu = () => {
     <s.LeftMenuItem>Item 1</s.LeftMenuItem>
     <s.LeftMenuItem>Item 2</s.LeftMenuItem>
     <Avatar /> 
+    <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
   </s.LeftMenuDiv>
   <s.ContentDiv> 
   </s.ContentDiv>
- 
+  
 </s.Container>
   )
 }
