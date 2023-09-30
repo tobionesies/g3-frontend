@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: row; 
   align-items: flex-end; 
   justify-content: flex-end; 
+  padding: 10px;
 `;
 
 export const RightMenuDiv = styled.div`

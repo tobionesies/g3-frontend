@@ -8,6 +8,7 @@ export const Container = styled.div`
 `;
 
 export const LeftMenuDiv = styled.div`
+  padding: 10px;
   width: 250px;
   height: 600px;
   border-right: solid #c7c7c7 1px;

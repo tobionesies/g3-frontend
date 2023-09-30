@@ -12,14 +12,13 @@ import ImagePost from '../components/ImagePost/ImagePost'
 const FeedPage = () => {
   const {userLoginName} = useContext(AuthContext)
   return (
-    <div>
-      
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <LeftMenu />
-        <ImagePost/>
-        <RightMenu />
-      </div>
-    </div>
+    
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', margin: '0', padding: '0' }}>
+    <LeftMenu />
+    <ImagePost />
+    <RightMenu />
+  </div>
+    
   )
 }
 
