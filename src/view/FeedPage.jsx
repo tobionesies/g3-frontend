@@ -7,21 +7,16 @@ import Comment from '../components/Comment/Comment'
 import basket from '../assets/basket.jpg'
 import RightMenu from '../components/RightMenu/RightMenu'
 import { AuthContext } from '../contexts/Context'
+import ImagePost from '../components/ImagePost/ImagePost'
 
 const FeedPage = () => {
   const {userLoginName} = useContext(AuthContext)
   return (
     <div>
-      <h2>Logged in as {userLoginName}</h2>
+      
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-       <LeftMenu />
-        <div style={{ height: '200px' }}>
-          <img src={basket} style={{ height: '200px', paddingTop: '10px' }} alt="Logo" />
-          <ImageActionBar />
-          <TextField />
-          <ButtonUser buttonName={"knapp"} />
-          <Comment />
-        </div>
+        <LeftMenu />
+        <ImagePost/>
         <RightMenu />
       </div>
     </div>
