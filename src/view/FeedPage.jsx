@@ -8,14 +8,16 @@ import basket from '../assets/basket.jpg'
 import RightMenu from '../components/RightMenu/RightMenu'
 import { AuthContext } from '../contexts/Context'
 import ImagePost from '../components/ImagePost/ImagePost'
+import Content from '../components/Content/Content'
 
 const FeedPage = () => {
   const {userLoginName} = useContext(AuthContext)
   return (
     
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', margin: '0', padding: '0' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
     <LeftMenu />
-    <ImagePost />
+    {/* <ImagePost /> */}
+    <Content />
     <RightMenu />
   </div>
     

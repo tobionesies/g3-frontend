@@ -7,7 +7,7 @@ import basket from '../../assets/basket.jpg'
 
 const ImagePost = () => {
   return (
-    <div style={{  height: '200px' }}>
+    <div style={{  height: 'auto' }}>
         <img src={basket} style={{ height: '200px', paddingTop: '10px' }} alt="Logo" />
         <ImageActionBar />
         <TextField />

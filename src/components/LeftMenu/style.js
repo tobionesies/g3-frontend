@@ -3,15 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: row; 
+  flex: 2;
   align-items: flex-start; 
   justify-content: flex-start; 
+  border-right: solid #c7c7c7 1px;
 `;
 
 export const LeftMenuDiv = styled.div`
   padding: 10px;
-  width: 250px;
-  height: 600px;
-  border-right: solid #c7c7c7 1px;
+  /* width: 250px;
+  height: 600px; */
 `;
 
 export const ContentDiv = styled.div`
