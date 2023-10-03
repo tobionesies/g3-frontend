@@ -7,6 +7,8 @@ import  houseIcon  from '../../assets/houseIcon.svg'
 import folder from '../../assets/folder.svg'
 import upload from '../../assets/upload.svg'
 import { Link } from 'react-router-dom'
+import SettingButton from '../SettingButton/SettingButton'
+ 
 
 
 const LeftMenu = () => {
@@ -34,6 +36,8 @@ const LeftMenu = () => {
     <Avatar /> 
     <ButtonUser buttonName={"Settings"} buttonLink={"/view/Settings"} />
     <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
+    <SettingButton/>
+    
   </s.LeftMenuDiv>
   <s.ContentDiv> 
   </s.ContentDiv>
