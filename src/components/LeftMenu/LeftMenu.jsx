@@ -6,6 +6,8 @@ import { AuthContext } from '../../contexts/Context'
 import  houseIcon  from '../../assets/houseIcon.svg'
 import folder from '../../assets/folder.svg'
 import upload from '../../assets/upload.svg'
+import SettingButton from '../SettingButton/SettingButton'
+ 
 
 
 const LeftMenu = () => {
@@ -28,6 +30,8 @@ const LeftMenu = () => {
     </s.LeftMenuItem>
     <Avatar /> 
     <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
+    <SettingButton/>
+    
   </s.LeftMenuDiv>
   <s.ContentDiv> 
   </s.ContentDiv>
