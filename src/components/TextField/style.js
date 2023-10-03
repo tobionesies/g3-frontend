@@ -6,7 +6,7 @@ export const TextFieldDiv = styled.div`
     height: 100px;
 `
 export const TextInput = styled.input`
-    width: 300px;
+    width: 350px;
     height: 50px;
     padding: 10px;
     border: solid black 1px;

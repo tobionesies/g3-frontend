@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const CommentDiv = styled.div`
- width: 350px;
+ width: 340px;
  height: 150px;
- background-color: #f1f1f1;
+ background-color: #f0f2f5;
  padding: 5px;
  border-radius: 5px
 `
