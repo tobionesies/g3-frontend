@@ -4,6 +4,7 @@ export const TextFieldDiv = styled.div`
     display: flex;
     width: 350px;
     height: 100px;
+    margin: 8px;
 `
 export const TextInput = styled.input`
     width: 350px;
