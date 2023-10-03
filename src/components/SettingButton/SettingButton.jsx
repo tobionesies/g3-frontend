@@ -11,7 +11,7 @@ function SettingButton() {
 
   return (
     <div>
-      <Link to="/settings" className="icon" onClick={handleIconClick}>
+      <Link to="/Settings" className="icon" onClick={handleIconClick}>
         <img src={gearIcon} style={{ height: '30px', marginRight: '16px' }} alt="Logo" /> 
         Settings
       </Link>

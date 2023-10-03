@@ -34,14 +34,13 @@ const LeftMenu = () => {
       Upload image
     </s.LeftMenuItem>
     <Avatar /> 
-    <ButtonUser buttonName={"Settings"} buttonLink={"/view/Settings"} />
-    <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
     <SettingButton/>
+    <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
     
   </s.LeftMenuDiv>
   <s.ContentDiv> 
   </s.ContentDiv>
-  
+ 
 </s.Container>
   )
 }
