@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex: 10;
   justify-content: center; 
   padding-top: 10px;
+  margin-right: 133px;
 `;
 
 export const ContentDiv = styled.div`
