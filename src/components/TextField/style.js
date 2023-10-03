@@ -4,11 +4,10 @@ export const TextFieldDiv = styled.div`
     display: flex;
     width: 350px;
     height: 100px;
-    margin: 8px;
 `
 export const TextInput = styled.input`
     width: 350px;
-    height: 50px;
+    height: 25px;
     padding: 10px;
     border: solid black 1px;
     border-radius: 10px;

@@ -16,27 +16,31 @@ const LandingPage = () => {
   };
   return (
     <div style={styles.container}>
-        <div>
-            <p>Username</p>
-            <TextField value={textLoginName} onChange={handleLoginNameChange} />  
-        </div>
-        <div>
-            <p>Password</p>
-            <TextField value={textPassWord} onChange={handlePassWordChange} />   
-        </div>
-        
-        <ButtonUser buttonName={"Login"} buttonLink={"/view/FeedPage"} buttonFunction={'login'} newName={textLoginName}/>
+      <div style={styles.inputContainer}>
+        <p>Username</p>
+        <TextField value={textLoginName} onChange={handleLoginNameChange} />  
+      </div>
+  
+      <div style={styles.inputContainer}>
+        <p>Password</p>
+        <TextField value={textPassWord} onChange={handlePassWordChange} />   
+      </div>
+  
+      <ButtonUser buttonName={"Login"} buttonLink={"/view/FeedPage"} buttonFunction={'login'} newName={textLoginName}/>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh', // Optionally, set the height to 100% of the viewport height for vertical centering
-  },
-};
-
-export default LandingPage;
+}
+  const styles = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column', 
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh', 
+    },
+    inputContainer: {
+      marginBottom: '20px', 
+    },
+  };
+  
+  export default LandingPage;
