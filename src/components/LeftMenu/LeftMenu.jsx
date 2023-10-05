@@ -16,7 +16,7 @@ const LeftMenu = () => {
   return (
   <s.Container>
   <s.LeftMenuDiv>
-    <h2>Logged in as {userLoginName}</h2> 
+    <p>Logged in as {userLoginName}</p> 
     <Link to={'/view/FeedPage'}>
     <s.LeftMenuItem>
      <img src={houseIcon} style={{ height: '20px', marginRight: '16px' }} alt="Logo" /> 

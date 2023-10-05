@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 const ImagePost = () => {
   return (
-    <div style={{  height: 'auto' }}>
+    <div style={{  height: 'auto', borderBottom: 'solid 1px #c1c6c9', width: '350px', margin: '10px' }}>
        <img src={userRegular} style={{ height: '20px', width: '35px', paddingTop: '10px' }} alt="Logo" />
        Posted by <b>John Doe</b>
       <Link to={'/view/SinglePost'}>
@@ -18,7 +18,7 @@ const ImagePost = () => {
         <ImageActionBar />
         <TextField />
         <ButtonUser buttonName={'Post'}/>
-        <Comment />
+        {/* <Comment /> */}
     </div>
   )
 }
