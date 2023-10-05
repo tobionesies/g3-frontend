@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import basket from '../../assets/basket.jpg'
 
 
-const SelectedPost = () => {
+const SelectedPost = ({userId, avatar, image, comments}) => {
   return (
     <s.Container>
       <s.Content>
