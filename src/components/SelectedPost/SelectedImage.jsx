@@ -9,11 +9,13 @@ import { Link } from 'react-router-dom'
 import basket from '../../assets/basket.jpg'
 
 
-const SelectedPost = ({userId, avatar, image, comments}) => {
+const SelectedPost = ({isOpen, onClose, userId, avatar, image, comments}) => {
+  if(!isOpen) return null;
+
   return (
     <s.Container>
       <s.Content>
-          <s.CloseBtn>X</s.CloseBtn>
+          <s.CloseBtn onClick={onClose}>x</s.CloseBtn>
         <s.LeftCol>
           <Link to={'/view/SinglePost'}>
             <img src={basket} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />

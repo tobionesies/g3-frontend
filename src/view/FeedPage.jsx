@@ -13,14 +13,19 @@ import SelectedPost from '../components/SelectedPost/SelectedImage'
 
 const FeedPage = () => {
   const {ImageFilter} = useContext(AuthContext)
+
+  const [isPostWindowOpen, setIsPostWindowOpen] = useState(false);
+  const openSelectedPost = () => setIsPostWindowOpen(true);
+  const closeSelectedPost = () => setIsPostWindowOpen(false);
+
   console.log('Nuvarande filter = ' + ImageFilter)
   return (
     
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
     <LeftMenu />
     {/* <ImagePost /> */}
-    {/* <SelectedPost /> */}
-    <Content contentValue={'feed'} />
+    <SelectedPost isOpen={isPostWindowOpen} onClose={closeSelectedPost} />
+    <Content contentValue={'feed'} openPost={openSelectedPost}/>
     <RightMenu />
   </div>
     

@@ -1,14 +1,15 @@
 import React from 'react';
 import * as s from './style';
 import ImagePost from '../ImagePost/ImagePost';
+import { Form } from 'react-router-dom';
 
-const Content = ({ contentValue }) => {
+const Content = ({ contentValue, openPost }) => {
   return (
     <s.Container>
       <s.ContentDiv>
         {contentValue === 'feed' ? (
           <>
-            <ImagePost />
+            <button onClick={openPost}></button>
             <ImagePost />
             <ImagePost />
           </>
