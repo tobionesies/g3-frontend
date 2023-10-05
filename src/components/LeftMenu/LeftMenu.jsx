@@ -30,8 +30,10 @@ const LeftMenu = () => {
     </s.LeftMenuItem>
     </Link>
     <s.LeftMenuItem>
+    <Link to={'/view/UploadImage'}>
     <img src={upload} style={{ height: '20px', marginRight: '16px' }} alt="Logo" /> 
       Upload image
+    </Link>
     </s.LeftMenuItem>
     <Avatar /> 
     <SettingButton/>
