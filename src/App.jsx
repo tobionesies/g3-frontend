@@ -2,9 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import FeedPage from './view/FeedPage'
 import LandingPage from './view/LandingPage'
 import { AuthProvider } from './contexts/Context';
-import Settings from './components/settings/Settings';
-import MyImages from './view/MyImages';
-import SinglePost from './view/SinglePost';
+import Settingspage from './components/Settings/settings';
+import Register from './components/Register/Register';
 
 function App() {
 
@@ -14,11 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/view/FeedPage" element={<FeedPage />} />
-        <Route path="/Settings" element={<Settings />} />
-        <Route path="/view/MyImages" element={<MyImages />} />
-        <Route path="/view/SinglePost" element={<SinglePost />} />  
-          
-      </Routes>
+        <Route path="/settings" element={<Settingspage />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>/
     </AuthProvider>
     </>
   )
