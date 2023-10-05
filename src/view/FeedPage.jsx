@@ -18,14 +18,22 @@ const FeedPage = () => {
   const openSelectedPost = () => setIsPostWindowOpen(true);
   const closeSelectedPost = () => setIsPostWindowOpen(false);
 
+  const [postInView, setPostInView] = useState({
+    userAvatar: "",
+    userId: "",
+    image: "",
+    text: "",
+    comments: []
+  })
+
   console.log('Nuvarande filter = ' + ImageFilter)
   return (
     
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
     <LeftMenu />
     {/* <ImagePost /> */}
-    <SelectedPost isOpen={isPostWindowOpen} onClose={closeSelectedPost} />
-    <Content contentValue={'feed'} openPost={openSelectedPost}/>
+    <SelectedPost isOpen={isPostWindowOpen} onClose={closeSelectedPost} postInView={postInView} />
+    <Content contentValue={'feed'} openPost={openSelectedPost} setPostInView={setPostInView} />
     <RightMenu />
   </div>
     

@@ -4,7 +4,7 @@ import ImagePost from '../ImagePost/ImagePost';
 import UploadImage from '../../view/UploadImage';
 import { Form } from 'react-router-dom';
 
-const Content = ({ contentValue, openPost }) => {
+const Content = ({ contentValue, openPost, setPostInView }) => {
 
 
   const [postList, setPostList] = useState([]);
@@ -36,7 +36,7 @@ const Content = ({ contentValue, openPost }) => {
         {contentValue === 'feed' ? (
           <>
             {postList.map((post) => (
-              <ImagePost key={post.id} image={post.image} openPost={openPost} />
+              <ImagePost key={post.id} image={post.image} openPost={openPost} setPostInView={setPostInView} />
             ))}
           </>
         ) : contentValue === 'upload' ? (

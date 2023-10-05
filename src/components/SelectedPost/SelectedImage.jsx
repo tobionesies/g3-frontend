@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import basket from '../../assets/basket.jpg'
 
 
-const SelectedPost = ({isOpen, onClose, userId, avatar, image, comments}) => {
+const SelectedPost = ({isOpen, onClose, postInView}) => {
   if(!isOpen) return null;
 
   return (
@@ -17,14 +17,15 @@ const SelectedPost = ({isOpen, onClose, userId, avatar, image, comments}) => {
       <s.Content>
           <s.CloseBtn onClick={onClose}>x</s.CloseBtn>
         <s.LeftCol>
-          <Link to={'/view/SinglePost'}>
-            <img src={basket} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />
-          </Link>  
+            <img src={postInView.image} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />
         </s.LeftCol>
         <s.RightCol>
-          <Avatar />
+          <div>{postInView.userAvatar}</div>
+          <div>{postInView.userId}</div>
+          {/* <Avatar /> */}
           <ImageActionBar />
-          <Comment />
+          {/* <Comment /> */}
+          <div>{postInView.comments}</div>
           <TextField />
         </s.RightCol>
       </s.Content>
