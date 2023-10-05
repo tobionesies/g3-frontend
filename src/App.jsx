@@ -7,6 +7,7 @@ import Register from './components/Register/Register';
 import RightMenu from './components/RightMenu/RightMenu';
 import UploadImage from './view/UploadImage';
 import MyImages from './view/MyImages';
+import SinglePost from './view/SinglePost';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/view/UploadImage" element={<UploadImage />} />
         <Route path="/view/MyImages" element={<MyImages />} />
+        <Route path="/view/SinglePost" element={<SinglePost />} />
+        
       </Routes>/
     </AuthProvider>
     </>
