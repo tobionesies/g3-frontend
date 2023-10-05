@@ -39,7 +39,6 @@ const Content = ({ contentValue, openPost }) => {
             {postList.map((post) => (
               <ImagePost key={post.id} image={post.image} />
             ))}
-
           </>
         ) : contentValue === 'upload' ? (
          <p>Upload content</p>
