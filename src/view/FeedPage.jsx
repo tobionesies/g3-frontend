@@ -9,6 +9,7 @@ import RightMenu from '../components/RightMenu/RightMenu'
 import { AuthContext } from '../contexts/Context'
 import ImagePost from '../components/ImagePost/ImagePost'
 import Content from '../components/Content/Content'
+import SelectedPost from '../components/SelectedPost/SelectedImage'
 
 const FeedPage = () => {
   const {userLoginName} = useContext(AuthContext)
@@ -17,6 +18,7 @@ const FeedPage = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
     <LeftMenu />
     {/* <ImagePost /> */}
+    {/* <SelectedPost /> */}
     <Content />
     <RightMenu />
   </div>
