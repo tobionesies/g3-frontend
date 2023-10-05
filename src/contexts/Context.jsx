@@ -5,6 +5,8 @@ export const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
   const [userLoginName, setUserLoginName] = useState('name');
+
+  const [ImageFilter, setImageFilter] = useState('Show all');
   
   const handleLogin = async () => {
     console.log('handleLogin')
@@ -42,7 +44,8 @@ export const AuthProvider = ({children}) => {
   }, [])
 
   return (
-    <AuthContext.Provider value={{userLoginName, setUserLoginName, handleLogin, handleLogout}}>
+    <AuthContext.Provider value={{userLoginName, setUserLoginName, handleLogin, handleLogout,
+     ImageFilter, setImageFilter }}>
       {children}
     </AuthContext.Provider>
   )
