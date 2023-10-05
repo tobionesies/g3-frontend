@@ -19,7 +19,7 @@ const FeedPage = () => {
     <LeftMenu />
     {/* <ImagePost /> */}
     {/* <SelectedPost /> */}
-    <Content />
+    <Content contentValue={'feed'} />
     <RightMenu />
   </div>
     

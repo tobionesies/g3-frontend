@@ -1,6 +1,7 @@
 import React from 'react'
 import LeftMenu from '../components/LeftMenu/LeftMenu'
 import RightMenu from '../components/RightMenu/RightMenu'
+import Content from '../components/Content/Content'
 
 const MyImages = () => {
   return (
@@ -8,13 +9,7 @@ const MyImages = () => {
     <LeftMenu />
     
     
-        <div style={{ padding: '20px'}}>
-    
-     <h3>My Images</h3>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente saepe ab accusamus aut fugit quaerat, placeat nemo vero vitae reprehenderit facere ratione eius iusto ipsa deleniti ex voluptatem totam eaque?
-      </p>
-       </div>
+     <Content />
     <RightMenu />
   </div>
   )
