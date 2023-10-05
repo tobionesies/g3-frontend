@@ -25,5 +25,11 @@ export const RightMenuItem = styled.div`
   width: 200px;
   height: 40px;
   padding: 10px;
+
+  &:hover {
+    font-weight: bold;
+  }
   
 `;
+
+

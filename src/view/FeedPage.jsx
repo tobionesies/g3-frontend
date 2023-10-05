@@ -12,7 +12,8 @@ import Content from '../components/Content/Content'
 import SelectedPost from '../components/SelectedPost/SelectedImage'
 
 const FeedPage = () => {
-  const {userLoginName} = useContext(AuthContext)
+  const {ImageFilter} = useContext(AuthContext)
+  console.log('Nuvarande filter = ' + ImageFilter)
   return (
     
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>

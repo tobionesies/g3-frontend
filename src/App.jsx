@@ -5,6 +5,7 @@ import { AuthProvider } from './contexts/Context';
 import Settings from './components/settings/Settings';
 import MyImages from './view/MyImages';
 import SinglePost from './view/SinglePost';
+import RightMenu from './components/RightMenu/RightMenu';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/Settings" element={<Settings />} />
         <Route path="/view/MyImages" element={<MyImages />} />
         <Route path="/view/SinglePost" element={<SinglePost />} />  
+        <Route path="/components/RightMenu/RightMenu" element={<RightMenu />} />  
           
       </Routes>
     </AuthProvider>
