@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import ButtonUser from '../components/Button/ButtonUser';
 import TextField from '../components/TextField/TextField';
+import RegisterButton from '../components/RegisterButton/RegisterButton';
 
 const LandingPage = () => {
   const [textLoginName, setTextLoginName] = useState('');
@@ -27,6 +28,8 @@ const LandingPage = () => {
       </div>
   
       <ButtonUser buttonName={"Login"} buttonLink={"/view/FeedPage"} buttonFunction={'login'} newName={textLoginName}/>
+      <p>Dont have an account?</p>
+      <RegisterButton />
     </div>
   );
 }
