@@ -35,11 +35,7 @@ const Content = ({ contentValue, openPost }) => {
       <s.ContentDiv>
         {contentValue === 'feed' ? (
           <>
-
             <button onClick={openPost}></button>
-            <ImagePost />
-            <ImagePost />
-
             {postList.map((post) => (
               <ImagePost key={post.id} image={post.image} />
             ))}
