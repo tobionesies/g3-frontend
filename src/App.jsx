@@ -5,6 +5,8 @@ import { AuthProvider } from './contexts/Context';
 import Settingspage from './components/Settings/settings';
 import Register from './components/Register/Register';
 import RightMenu from './components/RightMenu/RightMenu';
+import UploadImage from './view/UploadImage';
+import MyImages from './view/MyImages';
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/view/FeedPage" element={<FeedPage />} />
         <Route path="/settings" element={<Settingspage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/view/UploadImage" element={<UploadImage />} />
+        <Route path="/view/MyImages" element={<MyImages />} />
       </Routes>/
     </AuthProvider>
     </>
