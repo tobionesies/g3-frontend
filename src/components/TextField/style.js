@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-
+ 
 export const TextFieldDiv = styled.div`
     display: flex;
     width: 350px;
-    height: 100px;
+    height: 60px;
 `
 export const TextInput = styled.input`
     width: 350px;

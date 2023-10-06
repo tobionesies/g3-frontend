@@ -3,12 +3,12 @@ import * as s from './style';
 import ImagePost from '../ImagePost/ImagePost';
 import UploadImage from '../../view/UploadImage';
 import { Form } from 'react-router-dom';
-
+ 
 const Content = ({ contentValue, openPost, setPostInView }) => {
-
-
+ 
+ 
   const [postList, setPostList] = useState([]);
-
+ 
   const getPosts = async () => {
     try {
       const response = await fetch(
@@ -17,26 +17,26 @@ const Content = ({ contentValue, openPost, setPostInView }) => {
           method: 'GET',
         }
       );
-
+ 
       const postAPI = await response.json();
       setPostList(postAPI);
     } catch (error) {
       console.log(error);
     }
   };
-
+ 
   useEffect(() => {
     getPosts();
   }, []);
-
-
+ 
+ 
   return (
     <s.Container>
       <s.ContentDiv>
         {contentValue === 'feed' ? (
           <>
-            {postList.map((post) => (
-              <ImagePost key={post.id} image={post.image} openPost={openPost} setPostInView={setPostInView} />
+            {postList.map((post, index) => (
+              <ImagePost key={index} post={post} openPost={openPost} setPostInView={setPostInView} />
             ))}
           </>
         ) : contentValue === 'upload' ? (
@@ -48,6 +48,7 @@ const Content = ({ contentValue, openPost, setPostInView }) => {
     </s.Container>
   );
 };
-
+ 
 export default Content;
-
+ 
+ 

@@ -1,36 +1,91 @@
-import React from 'react'
-import * as s from './style'
-import Comment from '../Comment/Comment'
-import ImageActionBar from '../ImageActionBar/ImageActionBar'
-import TextField from '../TextField/TextField'
-import Avatar from '../Avatar/Avatar'
-import ImagePost from '../ImagePost/ImagePost'
-import { Link } from 'react-router-dom'
-import basket from '../../assets/basket.jpg'
-
-
-const SelectedPost = ({isOpen, onClose, postInView}) => {
-  if(!isOpen) return null;
-
+import React, { useContext, useEffect, useState } from "react";
+import * as s from "./style";
+import Comment from "../Comment/Comment";
+import ImageActionBar from "../ImageActionBar/ImageActionBar";
+import TextField from "../TextField/TextField";
+import Avatar from "../Avatar/Avatar";
+import ImagePost from "../ImagePost/ImagePost";
+import { Link } from "react-router-dom";
+import basket from "../../assets/basket.jpg";
+import userRegular from "../../assets/userRegular.svg";
+import { PostContext } from "../../contexts/PostContext";
+import { UserContext } from "../../contexts/UserContext";
+ 
+const SelectedPost = ({ isOpen, onClose, postInView }) => {
+  const {getUserById} = useContext(UserContext)
+  const { singlePost, handleLike, handlePostComment } = useContext(PostContext);
+  const [typedComment, setTypedComment] = useState("");
+  console.log(singlePost);
+  useEffect(() => {
+    if (singlePost) getUserById(singlePost?.user_id)
+  }, [singlePost])
+  if (!isOpen) return null;
+ 
+ 
+  const convertDate = (date) => {
+    return `${date?.getDate?.()}.${
+      date?.getMonth?.() + 1
+    }.${date?.getFullYear?.()} ${date?.getHours?.()}:${date?.getMinutes?.()}`;
+  };
+ 
+  const handleComment = () => {
+    handlePostComment(singlePost, typedComment);
+    setTypedComment("");
+  };
+ 
   return (
     <s.Container>
       <s.Content>
-          <s.CloseBtn onClick={onClose}>x</s.CloseBtn>
+        <s.CloseBtn onClick={onClose}>x</s.CloseBtn>
+ 
         <s.LeftCol>
-            <img src={postInView.image} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />
+          <s.Informations>
+            <div>
+              {
+                <img
+                  src={userRegular}
+                  style={{ height: "20px", width: "35px", paddingTop: "10px" }}
+                  alt="Logo"
+                />
+              }
+            </div>
+            <div>
+              <div style={{ fontWeight: "bold" }}>John Doe</div>
+              <div>{convertDate(new Date(singlePost?.created_at))}</div>
+            </div>
+          </s.Informations>
+          <img
+            src={singlePost.image}
+            style={{ height: "200px", width: "350px", paddingTop: "10px" }}
+            alt="Logo"
+          />
         </s.LeftCol>
         <s.RightCol>
-          <div>{postInView.userAvatar}</div>
-          <div>{postInView.userId}</div>
           {/* <Avatar /> */}
-          <ImageActionBar />
+          <ImageActionBar
+            handleLike={() => handleLike(singlePost)}
+            numOfComments={singlePost.comments?.length}
+            numOfLikes={singlePost.likes?.length}
+          />
           {/* <Comment /> */}
-          <div>{postInView.comments}</div>
-          <TextField />
+          <s.AllCommentsContainer>
+            {singlePost.comments?.map?.((comment, index) => (
+              <s.CommentContainer key={index}>
+                <s.CommentUsername>John doe</s.CommentUsername>
+                <s.CommentContent>{comment?.comment}</s.CommentContent>
+                <s.DateOfComment>
+                  {convertDate(new Date(comment?.updated_at))}
+                </s.DateOfComment>
+              </s.CommentContainer>
+            ))}
+          </s.AllCommentsContainer>
+          <TextField value={typedComment} onChange={setTypedComment} />
+          <s.SendButton onClick={handleComment}>Send comment</s.SendButton>
         </s.RightCol>
       </s.Content>
     </s.Container>
-  )
-}
-
-export default SelectedPost
+  );
+};
+ 
+export default SelectedPost;
+ 
