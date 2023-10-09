@@ -39,6 +39,7 @@ const ImageUpload = () => {
       formData.append('user_id', userId);
       formData.append('category', category);
       formData.append('image_name', 'photo');
+      formData.append('text','I am your doctor');
       formData.append('image', image);  // 'image' field will contain the actual file
   
       try {
