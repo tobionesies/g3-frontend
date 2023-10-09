@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +21,6 @@ const Register = () => {
 
   // Handle form submission
   const handleSubmit = () => {
-
     // Perform registration logic (e.g., send data to an API)
     // You can add your registration logic here, using all the form fields
     const formData = new FormData()
@@ -30,15 +29,16 @@ const Register = () => {
     formData.append('address',address)
     formData.append('email',email)
     formData.append('password',password)
-    formData.append('profile_picture', profilePicture)
+    formData.append('picture', profilePicture)
   
+    const url = 'https://api-4uzdo5gwpq-uc.a.run.app/api/user/signup'
 
-    fetch('https://api-4uzdo5gwpq-uc.a.run.app/api/user/signup',{
+    fetch(url,{
       method:'POST',
       body: formData
     }).then((response) => {
     if (!response.ok) {
-      return Promise.reject(`HTTP Error: ${response.json()}`);
+      return Promise.reject(`HTTP Error: ${response.status}`);
     }
     return response.json();
   }).then(data => {console.log(data);
@@ -64,7 +64,7 @@ const Register = () => {
   return (
     <div style={styles.container} className="register-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div className="form-group">
           <label>Username</label>
           <input
@@ -119,6 +119,7 @@ const Register = () => {
           <label>Profile Picture</label>
           <input
             type="file"
+            name="picture"
             accept="image/*" // Allow only image files
             onChange={(e) => setProfilePicture(e.target.files[0])}
             style={inputStyle} // Apply the shared style here
