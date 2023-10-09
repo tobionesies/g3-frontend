@@ -21,6 +21,9 @@ const Register = () => {
 
   // Handle form submission
   const handleSubmit = () => {
+    if(!profilePicture){
+      throw new Error("Oops!! No image selected!")
+    }
     // Perform registration logic (e.g., send data to an API)
     // You can add your registration logic here, using all the form fields
     const formData = new FormData()
@@ -64,7 +67,7 @@ const Register = () => {
   return (
     <div style={styles.container} className="register-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit} >
+      <div>
         <div className="form-group">
           <label>Username</label>
           <input
@@ -136,7 +139,7 @@ const Register = () => {
           </div>
         )}
         <RegisterButton onClick={handleRegisterButtonClick} />
-      </form>
+      </div>
       <Link to="/">Back</Link>
     </div>
   );
