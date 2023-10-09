@@ -32,7 +32,7 @@ const ImagePost = ({image, openPost, postInView, setPostInView, post}) => {
   return (
     <div style={{  height: 'auto', borderBottom: 'solid 1px #c1c6c9', width: '350px', margin: '10px' }}>
        <img src={userRegular} style={{ height: '20px', width: '35px', paddingTop: '10px' }} alt="Logo" />
-       Posted by <b>John Doe</b>
+       Posted by <b>{post.user_id}</b>
       {/* <Link to={'/view/SinglePost'}> */}
         <img onClick={() => handleClick()} src={post.image} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />
       {/* </Link>   */}
