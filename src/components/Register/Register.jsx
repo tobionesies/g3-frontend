@@ -12,22 +12,38 @@ const inputStyle = {
 
 const Register = () => {
   // Define state variables for registration form fields
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('chris');
+  const [password, setPassword] = useState('123456');
+  const [address, setAddress] = useState('dubai');
+  const [phoneNumber, setPhoneNumber] = useState('38932879327832');
+  const [email, setEmail] = useState('mr.chris@gmail.com');
   const [profilePicture, setProfilePicture] = useState(null);
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
 
     // Perform registration logic (e.g., send data to an API)
     // You can add your registration logic here, using all the form fields
+    const formData = new FormData()
+    formData.append('username',username)
+    formData.append('phone_number',phoneNumber)
+    formData.append('address',address)
+    formData.append('email',email)
+    formData.append('password',password)
+    formData.append('profile_picture', profilePicture)
+  
 
-    // Simulate storing the profile picture file
-    console.log('Profile Picture:', profilePicture);
+    fetch('https://api-4uzdo5gwpq-uc.a.run.app/api/user/signup',{
+      method:'POST',
+      body: formData
+    }).then((response) => {
+    if (!response.ok) {
+      return Promise.reject(`HTTP Error: ${response.json()}`);
+    }
+    return response.json();
+  }).then(data => {console.log(data);
+  }).catch((error) => console.log(error))
+   
 
     // Clear form fields after submission
     setUsername('');
