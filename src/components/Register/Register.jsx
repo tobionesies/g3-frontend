@@ -22,7 +22,8 @@ const Register = () => {
   // Handle form submission
   const handleSubmit = () => {
     if(!profilePicture){
-      throw new Error("Oops!! No image selected!")
+      alert("Oops!! No image selected!")
+      return
     }
     // Perform registration logic (e.g., send data to an API)
     // You can add your registration logic here, using all the form fields
@@ -38,7 +39,7 @@ const Register = () => {
 
     fetch(url,{
       method:'POST',
-      body: formData
+      body: formData,
     }).then((response) => {
     if (!response.ok) {
       return Promise.reject(`HTTP Error: ${response.status}`);
