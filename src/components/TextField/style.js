@@ -6,6 +6,7 @@ export const TextFieldDiv = styled.div`
     height: 60px; */
 `
 export const TextInput = styled.input`
+
     /* width: 350px; */
     height: 25px;
     /* padding: 10px; */
@@ -18,5 +19,6 @@ export const TextInput = styled.input`
     margin-top: 10px;
     margin-bottom: 10px;
     border-style: none;
-    border: 1px solid grey;
+    border: 2px solid lightgray;
+    color: #333333;
 `
