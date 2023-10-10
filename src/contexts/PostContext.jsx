@@ -45,13 +45,33 @@ export const PostProvider = ({ children }) => {
     }
   };
  
-  const handlePostComment = () => {
+   const handlePostComment = async (post, comment) => {
     try {
-      console.log("comment");
+      const response = await fetch(
+        "https://api-4uzdo5gwpq-uc.a.run.app/api/post/comment/" + post.id,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            id:"username_testing", //userId
+            comment:comment, //comment
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      console.log('like finished');
     } catch (error) {
-      console.log(error);
+      console.error("Error during like:", error);
     }
-  };
+  }; 
+
+  
  
   return (
     <PostContext.Provider

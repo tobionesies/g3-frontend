@@ -57,7 +57,7 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
       Posted by <b>{post.user_id}</b>
       <img onClick={() => handleClick()} src={post.image} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />
       <p>{post.text}</p>
-      <ImageActionBar numOfLikes={likes} numOfComments={post.comments?.length} postId={post.id} handleLike={handleLike}/>
+      <ImageActionBar numOfLikes={likes} numOfComments={post.comment?.length} postId={post.id} handleLike={handleLike}/>
       <TextField />
       <ButtonUser buttonName={'Post'} />
       {/* <Comment /> */}

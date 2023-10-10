@@ -50,8 +50,9 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
               }
             </div>
             <div>
-              <div style={{ fontWeight: "bold" }}>John Doe</div>
+              <div style={{ fontWeight: "bold" }}>{singlePost.user_id}</div>
               <div>{convertDate(new Date(singlePost?.created_at))}</div>
+              {singlePost.id}
             </div>
           </s.Informations>
           <img
@@ -63,13 +64,13 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
         <s.RightCol>
           <ImageActionBar
             handleLike={() => handleLike(singlePost)}
-            numOfComments={singlePost.comments?.length}
+            numOfComments={singlePost.comment?.length}
             numOfLikes={singlePost.likes?.length}
           />
           {
-            singlePost.comments != null 
+            singlePost.comment != null 
               ? <s.AllCommentsContainer>
-               {singlePost.comments?.map?.((comment, index) => (
+               {singlePost.comment?.map?.((comment, index) => (
                   <s.CommentContainer key={index}>
                     <Comment userName={comment.user_id} comment={comment?.comment} date={comment?.updated_at} />
                   </s.CommentContainer>
