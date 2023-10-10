@@ -35,7 +35,7 @@ const LeftMenu = () => {
       Upload image
     </Link>
     </s.LeftMenuItem>
-    <Avatar /> 
+    <Avatar height={"30px"} width={"25px"} /> 
     <SettingButton/>
     <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
     

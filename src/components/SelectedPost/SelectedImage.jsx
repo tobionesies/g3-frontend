@@ -61,21 +61,20 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
           />
         </s.LeftCol>
         <s.RightCol>
-          {/* <Avatar /> */}
           <ImageActionBar
             handleLike={() => handleLike(singlePost)}
             numOfComments={singlePost.comments?.length}
             numOfLikes={singlePost.likes?.length}
           />
-          {/* <Comment /> */}
           <s.AllCommentsContainer>
             {singlePost.comments?.map?.((comment, index) => (
               <s.CommentContainer key={index}>
-                <s.CommentUsername>John doe</s.CommentUsername>
+                {/* <s.CommentUsername>John doe</s.CommentUsername>
                 <s.CommentContent>{comment?.comment}</s.CommentContent>
                 <s.DateOfComment>
                   {convertDate(new Date(comment?.updated_at))}
-                </s.DateOfComment>
+                </s.DateOfComment> */}
+                <Comment userName={comment.user_id} comment={comment?.comment} date={comment?.updated_at} />
               </s.CommentContainer>
             ))}
           </s.AllCommentsContainer>

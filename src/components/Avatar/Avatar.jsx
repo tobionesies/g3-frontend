@@ -1,10 +1,16 @@
 import React from 'react'
 import * as s from './style'
+import userRegular from "../../assets/userRegular.svg";
 
-const Avatar = () => {
+
+const Avatar = ({width, height}) => {
   return (
    <s.ImageDiv>
-        <p>Avatar picture</p>
+        <img
+          src={userRegular}
+          style={{ height: height, width: width }}
+          alt="Avatar"
+        />
    </s.ImageDiv>
   )
 }

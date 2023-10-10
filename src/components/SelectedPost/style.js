@@ -60,9 +60,8 @@ export const CloseBtn = styled.div`
 `;
 export const CommentContainer = styled.div`
   background-color: #e0dcdc;
-  border-radius: 12px;
-  padding: 10px 18px;
-  padding-bottom: 24px;
+  border-radius: 10px;
+  margin-right: 10px;
   position: relative;
 `;
 export const CommentUsername = styled.div`
@@ -71,6 +70,8 @@ export const CommentUsername = styled.div`
 export const CommentContent = styled.div``;
 export const AllCommentsContainer = styled.div`
   display: flex;
+  height: 300px;
+  overflow-y: scroll;
   flex-direction: column;
   gap: 12px;
   margin-bottom: 12px;
