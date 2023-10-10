@@ -66,18 +66,17 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
             numOfComments={singlePost.comments?.length}
             numOfLikes={singlePost.likes?.length}
           />
-          <s.AllCommentsContainer>
-            {singlePost.comments?.map?.((comment, index) => (
-              <s.CommentContainer key={index}>
-                {/* <s.CommentUsername>John doe</s.CommentUsername>
-                <s.CommentContent>{comment?.comment}</s.CommentContent>
-                <s.DateOfComment>
-                  {convertDate(new Date(comment?.updated_at))}
-                </s.DateOfComment> */}
-                <Comment userName={comment.user_id} comment={comment?.comment} date={comment?.updated_at} />
-              </s.CommentContainer>
-            ))}
-          </s.AllCommentsContainer>
+          {
+            singlePost.comments != null 
+              ? <s.AllCommentsContainer>
+               {singlePost.comments?.map?.((comment, index) => (
+                  <s.CommentContainer key={index}>
+                    <Comment userName={comment.user_id} comment={comment?.comment} date={comment?.updated_at} />
+                  </s.CommentContainer>
+                ))}
+              </s.AllCommentsContainer>
+            : <p>No comments</p>
+          }
           <TextField value={typedComment} onChange={setTypedComment} />
           <s.SendButton onClick={handleComment}>Send comment</s.SendButton>
         </s.RightCol>

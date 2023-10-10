@@ -32,7 +32,6 @@ export const Content = styled.div`
  
 export const LeftCol = styled.div`
   flex: 1;
-  /* background-color: tomato; */
 `;
  
 export const Informations = styled.div`
@@ -43,7 +42,6 @@ export const Informations = styled.div`
  
 export const RightCol = styled.div`
   flex: 1;
-  background-color: beige;
   padding: 10px;
 `;
 export const CloseBtn = styled.div`
