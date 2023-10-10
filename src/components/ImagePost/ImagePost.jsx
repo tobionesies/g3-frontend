@@ -25,8 +25,23 @@ const ImagePost = ({image, openPost, postInView, setPostInView, post}) => {
     setSinglePost(post)
   }
  
-  const handleLike = () => {
- 
+  const handleLike = async (id) => {
+  //   try {
+  //     console.log('do stuff')
+  //     const response = await fetch(
+  //       "https://api-4uzdo5gwpq-uc.a.run.app/api/post/like/" + id,
+  //       {
+  //         method: "PUT",
+  //         body: JSON.stringify(
+  //           {
+  //             "id":"21773dfe-5aaf-4d8d-bb0d-09112aac1a29"
+  //           }
+  //         ),
+  //       }
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
   }
  
   return (
@@ -36,7 +51,7 @@ const ImagePost = ({image, openPost, postInView, setPostInView, post}) => {
       {/* <Link to={'/view/SinglePost'}> */}
         <img onClick={() => handleClick()} src={post.image} style={{ height: '200px', width: '350px', paddingTop: '10px' }} alt="Logo" />
       {/* </Link>   */}
-        <ImageActionBar numOfLikes={post.likes.length} numOfComments={post.comments?.length} handleLike={handleLike} />
+        <ImageActionBar numOfLikes={post.likes.length} numOfComments={post.comments?.length} postId={post.id} />
         <TextField />
         <ButtonUser buttonName={'Post'}/>
         {/* <Comment /> */}
