@@ -7,6 +7,8 @@ export const AuthProvider = ({children}) => {
   const [userLoginName, setUserLoginName] = useState('name');
 
   const [ImageFilter, setImageFilter] = useState('Show all');
+
+  const [LoginId, setLoginId] = useState('21773dfe-5aaf-4d8d-bb0d-09112aac1a29');
   
   const handleLogin = async () => {
     console.log('handleLogin')
@@ -45,7 +47,7 @@ export const AuthProvider = ({children}) => {
 
   return (
     <AuthContext.Provider value={{userLoginName, setUserLoginName, handleLogin, handleLogout,
-     ImageFilter, setImageFilter }}>
+     ImageFilter, setImageFilter, LoginId }}>
       {children}
     </AuthContext.Provider>
   )
