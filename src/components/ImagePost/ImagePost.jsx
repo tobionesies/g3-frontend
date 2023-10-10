@@ -49,7 +49,6 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
   const handleClick = () => {
     setOpenPost(true);
     setSinglePost(post);
-    handleLike();
   };
 
   return (
