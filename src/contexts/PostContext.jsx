@@ -7,12 +7,17 @@ export const PostProvider = ({ children }) => {
   const [allPosts, setAllPosts] = useState([]);
   const [openPost, setOpenPost] = useState(false);
  
-  const getPostById = async (PostId) => {
+  const getPostById = async (PostId, accessToken) => {
     try {
       const response = await fetch(
         "https://api-4uzdo5gwpq-uc.a.run.app/api/post/" + PostId,
         {
           method: "GET",
+          
+          headers: {
+            "Content-Type": "application/json",
+            'authorization': accessToken
+          },
         }
       );
       const json = await response.json();
@@ -45,7 +50,7 @@ export const PostProvider = ({ children }) => {
     }
   };
  
-   const handlePostComment = async (post, comment) => {
+   const handlePostComment = async (post, comment, accessToken) => {
     try {
       const response = await fetch(
         "https://api-4uzdo5gwpq-uc.a.run.app/api/post/comment/" + post.id,
@@ -57,6 +62,7 @@ export const PostProvider = ({ children }) => {
           }),
           headers: {
             "Content-Type": "application/json",
+            'authorization': accessToken
           },
         }
       );

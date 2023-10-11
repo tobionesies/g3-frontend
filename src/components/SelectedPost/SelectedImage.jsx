@@ -12,7 +12,7 @@ import { PostContext } from "../../contexts/PostContext";
 import { UserContext } from "../../contexts/UserContext";
  
 const SelectedPost = ({ isOpen, onClose, postInView }) => {
-  const {getUserById} = useContext(UserContext)
+  const {getUserById, accessToken} = useContext(UserContext)
   const { singlePost, handleLike, handlePostComment } = useContext(PostContext);
   const [typedComment, setTypedComment] = useState("");
   
@@ -29,7 +29,7 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
   };
  
   const handleComment = () => {
-    handlePostComment(singlePost, typedComment);
+    handlePostComment(singlePost, typedComment, accessToken);
     setTypedComment("");
   };
  
