@@ -9,8 +9,8 @@ import { PostContext } from '../../contexts/PostContext';
 import { AuthContext } from '../../contexts/Context';
 
 const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
-  const usersContext = useContext(UserContext);
-  const {LoginId} = useContext(AuthContext);
+  /* const usersContext = useContext(UserContext);
+  const {LoginId} = useContext(AuthContext); */
   const { setOpenPost, setSinglePost } = useContext(PostContext);
   const [likes, setLikes] = useState(post.likes.length);
 
@@ -37,7 +37,7 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
       const updatedPost = await response.json();
 
       // Find the like with the matching user_id (LoginId)
-      const likedByUser = updatedPost.likes.find((like) => like.user_id === LoginId);
+      const likedByUser = updatedPost.likes.find((like) => like.user_id === "done");
 
       if (likedByUser) {
         // If liked by the user, increase likes by 1

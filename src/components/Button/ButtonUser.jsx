@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Context';
 
 const ButtonUser = ({ buttonName, buttonLink, buttonFunction, newName }) => {
-  const {userLoginName, setUserLoginName} = useContext(AuthContext)
+  //const {userLoginName, setUserLoginName} = useContext(AuthContext)
 
     const updateUserName = () => {
       if (buttonFunction == 'login') {

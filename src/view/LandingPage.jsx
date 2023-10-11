@@ -4,10 +4,12 @@ import ButtonUser from "../components/Button/ButtonUser";
 import TextField from "../components/TextField/TextField";
 import RegisterButton from "../components/RegisterButton/RegisterButton";
 import { colors } from "../theme";
+import { useAppContext } from "../auth";
 
 const LandingPage = () => {
   const [textLoginName, setTextLoginName] = useState("");
   const [textPassWord, setTextPassWord] = useState("");
+  const {state, dispatch} = useAppContext();
 
   const handleLoginNameChange = (value) => {
     setTextLoginName(value);
@@ -16,6 +18,35 @@ const LandingPage = () => {
   const handlePassWordChange = (value) => {
     setTextPassWord(value);
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (textLoginName.length <= 3 || textPassWord.length <= 2) {
+      console.log('provide user credentials');
+      return;
+    }
+  
+    const response = await fetch('http://localhost:3000/api/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({ email: textLoginName, password: textPassWord }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      const res = await response.json()
+      
+      const credentials = {
+        token : res.token,
+        userId : res.id 
+      }
+      dispatch({type:'LOGIN', payload: credentials})
+
+    } else {
+      console.error('Error message state:', response.status);
+    }
+  };
+  
+
   return (
     <div style={styles.container}>
       <div style={styles.content}>
@@ -29,12 +60,13 @@ const LandingPage = () => {
           <TextField value={textPassWord} type='password' onChange={handlePassWordChange} />
         </div>
 
-        <ButtonUser
+       {/*  <ButtonUser
           buttonName={"Login"}
           buttonLink={"/view/FeedPage"}
           buttonFunction={"login"}
           newName={textLoginName}
-        />
+        /> */}
+        <button onClick={handleLogin}>Login</button>
         <p>Dont have an account?</p>
         <RegisterButton />
       </div>

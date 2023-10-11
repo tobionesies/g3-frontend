@@ -13,22 +13,33 @@ import ImagePost from '../components/ImagePost/ImagePost'
 import Content from '../components/Content/Content'
 import SelectedPost from '../components/SelectedPost/SelectedImage'
 import { PostContext } from '../contexts/PostContext'
+import { useAppContext } from '../auth'
+import UploadImage from "./UploadImage";
+import MyImages from "./MyImages";
+import SinglePost from "./SinglePost";
+import Settingspage from "../components/Settings/settings";
  
 const FeedPage = () => {
-  const {ImageFilter} = useContext(AuthContext)
-  const {openPost, setOpenPost} = useContext(PostContext);
-  console.log(openPost)
+  /* const {ImageFilter} = useContext(AuthContext)
+  const {openPost, setOpenPost} = useContext(PostContext); */
+  // console.log(openPost)
  
-  const closeSelectedPost = () => setOpenPost(false);
+  // const closeSelectedPost = () => setOpenPost(false);
  
-  console.log('Nuvarande filter = ' + ImageFilter)
+  //console.log('Nuvarande filter = ' + ImageFilter)
+  const {state} = useAppContext()
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0', postion:'relative' }}>
     <LeftMenu />
+    {state.screen.FEEDPAGE && <Content contentValue={'feed'} />}
+    {state.screen.UPLOADIMAGE && <UploadImage />}
+    {state.screen.MYIMAGE && <MyImages />}
+    {state.screen.SINGLEPOST && <SinglePost />}
+    {state.screen.SETTINGS && <Settingspage />}
     {/* <ImagePost /> */}
-    <SelectedPost isOpen={openPost} onClose={closeSelectedPost} />
-    <Content contentValue={'feed'} />
-    <RightMenu />
+    {/* <SelectedPost isOpen={openPost} onClose={closeSelectedPost} /> */}
+    {/* <RightMenu /> */}
   </div>
  
   )
