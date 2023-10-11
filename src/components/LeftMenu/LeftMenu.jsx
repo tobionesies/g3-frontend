@@ -1,13 +1,8 @@
 import React, {useContext} from 'react'
 import * as s from './style'
 import Avatar from '../Avatar/Avatar'
-import ButtonUser from '../Button/ButtonUser'
-import  houseIcon  from '../../assets/houseIcon.svg'
-import folder from '../../assets/folder.svg'
-import upload from '../../assets/upload.svg'
-import { Link } from 'react-router-dom'
-import SettingButton from '../SettingButton/SettingButton'
 import { useAppContext } from '../../auth'
+import {FiHome, FiFolder, FiUpload, FiSettings} from 'react-icons/fi'
  
 
 
@@ -21,33 +16,38 @@ const LeftMenu = () => {
   return (
   <s.Container>
   <s.LeftMenuDiv>
-    <p>ImageSharing App</p> 
+    <s.Header>
+      <p>ImageSharing App</p> 
+    </s.Header>
   
-    <s.LeftMenuItem onClick={()=> handleScreenChange('FEEDPAGE')}>
-     <img src={houseIcon} style={{ height: '20px', marginRight: '16px' }} alt="Logo" /> 
-      All images
+    <s.LeftMenuItem isActive={state.screen.FEEDPAGE} onClick={()=> handleScreenChange('FEEDPAGE')}>
+     <FiHome size={20}/>
+      <span>All images</span>
     </s.LeftMenuItem>
 
-    <Link to={'/view/MyImages'}>
-    <s.LeftMenuItem>
-    <img src={folder} style={{ height: '20px', marginRight: '16px' }} alt="Logo" /> 
-      My images
+   
+    <s.LeftMenuItem isActive={state.screen.MYIMAGE} onClick={()=> handleScreenChange('MYIMAGE')}>
+      <FiFolder size={20}/>
+      <span>My images</span>
     </s.LeftMenuItem>
-    </Link>
-    <s.LeftMenuItem>
-    <Link to={'/view/UploadImage'}>
-    <img src={upload} style={{ height: '20px', marginRight: '16px' }} alt="Logo" /> 
-      Upload image
-    </Link>
+   
+    <s.LeftMenuItem isActive={state.screen.UPLOADIMAGE} onClick={()=> handleScreenChange('UPLOADIMAGE')}>
+      <FiUpload size={20}/>
+      <span>Create Post</span>
     </s.LeftMenuItem>
-    <SettingButton/>
-    <ButtonUser buttonName={"Logout"} buttonLink={"/"} />
+
+    <s.LeftMenuItem isActive={state.screen.SETTINGS} onClick={()=> handleScreenChange('SETTINGS')}>
+      <FiSettings size={20}/>
+      <span>Settings</span>
+    </s.LeftMenuItem>
+
+    {/* <ButtonUser buttonName={"Logout"} buttonLink={"/"} /> */}
     
   </s.LeftMenuDiv>
   <s.ContentDiv> 
   </s.ContentDiv>
   <s.Profile>
-    <Avatar height={"30px"} width={"25px"} /> 
+    <Avatar /> 
   </s.Profile>
  
 </s.Container>

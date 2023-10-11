@@ -4,15 +4,19 @@ export const Container = styled.div`
   display: flex;
   
   flex-direction: row; 
-  flex: 2;
+  max-width: 250px;
+  height: 100%;
   align-items: flex-start; 
   justify-content: flex-start; 
   border-left: solid #c7c7c7 1px;
+  position: fixed;
+  right:0;
+  
 `;
 
 export const RightMenuDiv = styled.div`
   padding: 10px;
-  position: fixed;
+ 
   /* width: 250px;
   height: 600px; */
 `;

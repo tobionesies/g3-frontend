@@ -39,17 +39,9 @@ const Content = ({ contentValue, openPost, setPostInView }) => {
   return (
     <s.Container>
       <s.ContentDiv>
-        {contentValue === 'feed' ? (
-          <>
             {postList.map((post, index) => (
               <ImagePost key={index} post={post} openPost={openPost} setPostInView={setPostInView} />
             ))}
-          </>
-        ) : contentValue === 'upload' ? (
-         <p>Upload content</p>
-        ) : (
-          <p>Error</p>
-        )}
       </s.ContentDiv>
     </s.Container>
   );
