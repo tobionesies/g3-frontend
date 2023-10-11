@@ -4,25 +4,31 @@ import heartRegular from '../../assets/heartRegular.svg'
 import heartSolid from '../../assets/heartSolid.svg'
 import commentRegular from '../../assets/commentRegular.svg'
 import { AuthContext } from '../../contexts/Context'
+import { UserContext } from '../../contexts/UserContext'
 
  
 const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
   const {LoginId} = useContext(AuthContext);
+  const {accessToken} = useContext(UserContext);
   const [myLikes, setMyLikes] = useState(false);
 
 
   const getPost = async () => {
     console.log('get single post')
+    
     try {
       const response = await fetch(
         'https://api-4uzdo5gwpq-uc.a.run.app/api/post/' + postId,
         {
-          method: 'GET',
+          method: 'GET', headers: {
+            'authorization': accessToken
+            // Add other headers if needed
+          },
         }
       );
  
       const postAPI = await response.json();
-      console.log(postAPI[0].likes)
+      
       postAPI.likes.forEach((post) => {
         if (post.id === LoginId) {
           setMyLikes(true)

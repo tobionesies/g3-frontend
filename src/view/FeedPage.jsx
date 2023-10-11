@@ -13,10 +13,12 @@ import ImagePost from '../components/ImagePost/ImagePost'
 import Content from '../components/Content/Content'
 import SelectedPost from '../components/SelectedPost/SelectedImage'
 import { PostContext } from '../contexts/PostContext'
+import { UserContext } from '../contexts/UserContext'
  
 const FeedPage = () => {
   const {ImageFilter} = useContext(AuthContext)
   const {openPost, setOpenPost} = useContext(PostContext);
+
   console.log(openPost)
  
   const closeSelectedPost = () => setOpenPost(false);

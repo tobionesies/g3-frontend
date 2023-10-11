@@ -9,24 +9,26 @@ import { PostContext } from '../../contexts/PostContext';
 import { AuthContext } from '../../contexts/Context';
 
 const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
-  const usersContext = useContext(UserContext);
+  const {accessToken} = useContext(UserContext);
   const {LoginId} = useContext(AuthContext);
   const { setOpenPost, setSinglePost } = useContext(PostContext);
   const [likes, setLikes] = useState(post.likes.length);
 
 
   const handleLike = async () => {
+    console.log(accessToken)
     try {
       const response = await fetch(
-        "https://api-4uzdo5gwpq-uc.a.run.app/api/post/like/" + post.id,
+        `https://api-4uzdo5gwpq-uc.a.run.app/api/post/like/${post.id}`,
         {
           method: "PUT",
-          body: JSON.stringify({
-            id: "LikeByAlex",
-          }),
           headers: {
-            "Content-Type": "application/json",
+            'authorization': accessToken,
+            'Content-Type': 'application/json',
           },
+          body: JSON.stringify({
+            id: "LikeByAlex", // Replace with the actual user ID
+          }),
         }
       );
 

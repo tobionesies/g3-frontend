@@ -15,7 +15,7 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
   const {getUserById} = useContext(UserContext)
   const { singlePost, handleLike, handlePostComment } = useContext(PostContext);
   const [typedComment, setTypedComment] = useState("");
-  console.log(singlePost);
+  
   useEffect(() => {
     if (singlePost) getUserById(singlePost?.user_id)
   }, [singlePost])

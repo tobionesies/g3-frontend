@@ -6,8 +6,8 @@ import RegisterButton from "../components/RegisterButton/RegisterButton";
 import { colors } from "../theme";
 
 const LandingPage = () => {
-  const [textLoginName, setTextLoginName] = useState("");
-  const [textPassWord, setTextPassWord] = useState("");
+  const [textLoginName, setTextLoginName] = useState("mr.chris@gmail.com");
+  const [textPassWord, setTextPassWord] = useState("123456");
 
   const handleLoginNameChange = (value) => {
     setTextLoginName(value);
@@ -33,7 +33,8 @@ const LandingPage = () => {
           buttonName={"Login"}
           buttonLink={"/view/FeedPage"}
           buttonFunction={"login"}
-          newName={textLoginName}
+          userName={textLoginName}
+          userPassword={textPassWord}
         />
         <p>Dont have an account?</p>
         <RegisterButton />
