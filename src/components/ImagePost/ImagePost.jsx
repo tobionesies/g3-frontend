@@ -9,6 +9,7 @@ import { PostContext } from "../../contexts/PostContext";
 import Post from "./Post"
 import * as s from "./styled";
 import { useAppContext } from "../../auth";
+import {FiMoreVertical} from 'react-icons/fi';
 
 const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
   /* const usersContext = useContext(UserContext);
@@ -82,7 +83,10 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
             src={post.image ? post.image : userRegular}
             alt="avatar"
           />
-          <span>Posted by <b>{post.user_id}</b></span>
+          <span>Posted by <b>{post.username? post.username: 'username'}</b></span>
+          <div>
+          <FiMoreVertical size={25}/>
+          </div>
         </s.PostHeader>
         <Post text={post.text} />
         <s.ImagePostContainer >

@@ -2,16 +2,8 @@
      
 import React, {useContext, useState} from 'react'
 import LeftMenu from '../components/LeftMenu/LeftMenu'
-import ImageActionBar from '../components/ImageActionBar/ImageActionBar'
-import TextField from '../components/TextField/TextField'
-import ButtonUser from '../components/Button/ButtonUser'
-import Comment from '../components/Comment/Comment'
-import basket from '../assets/basket.jpg'
 import RightMenu from '../components/RightMenu/RightMenu'
-import { AuthContext } from '../contexts/Context'
-import ImagePost from '../components/ImagePost/ImagePost'
 import Content from '../components/Content/Content'
-import { PostContext } from '../contexts/PostContext'
 import { useAppContext } from '../auth'
 import UploadImage from "./UploadImage";
 import MyImages from "./MyImages";
@@ -19,12 +11,6 @@ import SinglePost from "./SinglePost";
 import Settingspage from "../components/Settings/settings";
  
 const FeedPage = () => {
-  // const {ImageFilter} = useContext(AuthContext)
-  
-  // console.log(openPost)
- 
- 
-  //console.log('Nuvarande filter = ' + ImageFilter)
   const {state} = useAppContext()
 
   return (
