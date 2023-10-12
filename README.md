@@ -2,7 +2,6 @@
 
 ImageShare is a web application built with React.js, React-DOM, and Vite. It utilizes Firestore for the database and Firebase Authentication for user management. This app allows users to post images along with text captions for others to view and interact with.
 
-![ImageShare App](image-share-app-screenshot.png)
 
 ## Table of Contents
 
