@@ -11,7 +11,6 @@ import RightMenu from '../components/RightMenu/RightMenu'
 import { AuthContext } from '../contexts/Context'
 import ImagePost from '../components/ImagePost/ImagePost'
 import Content from '../components/Content/Content'
-import SelectedPost from '../components/SelectedPost/SelectedImage'
 import { PostContext } from '../contexts/PostContext'
 import { useAppContext } from '../auth'
 import UploadImage from "./UploadImage";
@@ -20,11 +19,10 @@ import SinglePost from "./SinglePost";
 import Settingspage from "../components/Settings/settings";
  
 const FeedPage = () => {
-  /* const {ImageFilter} = useContext(AuthContext)
-  const {openPost, setOpenPost} = useContext(PostContext); */
+  // const {ImageFilter} = useContext(AuthContext)
+  
   // console.log(openPost)
  
-  // const closeSelectedPost = () => setOpenPost(false);
  
   //console.log('Nuvarande filter = ' + ImageFilter)
   const {state} = useAppContext()
@@ -39,7 +37,6 @@ const FeedPage = () => {
       {state.screen.SINGLEPOST && <SinglePost />}
       {state.screen.SETTINGS && <Settingspage />}
       {/* <ImagePost /> */}
-      {/* <SelectedPost isOpen={openPost} onClose={closeSelectedPost} /> */}
     </div>
     <RightMenu />
   </div>

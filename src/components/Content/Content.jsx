@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as s from "./style";
 import ImagePost from "../ImagePost/ImagePost";
 import { useAppContext } from "../../auth";
 import { useQuery} from "react-query";
+import SelectedPost from '../SelectedPost/SelectedImage'
 import SkeletonLoader from "./SkeletonLoader";
+import { PostContext } from "../../contexts/PostContext";
 
-const Content = ({openPost, setPostInView }) => {
+const Content = ({ setPostInView }) => {
   const { state } = useAppContext();
+
+  const {openPost, setOpenPost} = useContext(PostContext);
+  const closeSelectedPost = () => setOpenPost(false);
 
   const getPosts = async () => {
     const response = await fetch(
@@ -32,6 +37,8 @@ const Content = ({openPost, setPostInView }) => {
     );
   if (error) return <div>Error: {error.message}</div>;
 
+      
+
   return (
     <s.Container>
       <s.ContentDiv>
@@ -43,6 +50,7 @@ const Content = ({openPost, setPostInView }) => {
             setPostInView={setPostInView}
           />
         ))}
+        <SelectedPost isOpen={openPost} onClose={closeSelectedPost} />
       </s.ContentDiv>
     </s.Container>
   );
