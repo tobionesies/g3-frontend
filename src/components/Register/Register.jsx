@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const inputStyle = {
 };
 
 const Register = () => {
-  
+  // Define state variables for registration form fields
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [address, setAddress] = useState('');
@@ -23,37 +23,17 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
 
-  
-  const handleSubmit = async () => {
-    
-  
-    const users = new FormData();
-    users.append("username",username);
-    users.append("password",password);
-    users.append("address",address);
-    users.append("phone_number",phoneNumber);
-    users.append("email",email);
-    users.append("profile_picture", "N/A");
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  
-    try {
-    
-      const response = await fetch(apiEndpoint, {
-        method: 'POST',
-        body: users
-      });
-            console.log(response);
-      
-      if (response.status === 200) {
-        
-        console.log('Registration successful');
-      }
-    } catch (error) {
-      
-      console.error('Registration failed', error);
-    }
-  
-    
+    // Perform registration logic (e.g., send data to an API)
+    // You can add your registration logic here, using all the form fields
+
+    // Simulate storing the profile picture file
+    console.log('Profile Picture:', profilePicture);
+
+    // Clear form fields after submission
     setUsername('');
     setPassword('');
     setAddress('');
@@ -71,7 +51,7 @@ const Register = () => {
   return (
     <div style={styles.container} className="register-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <div>
         <div className="form-group">
           <label>Username</label>
           <input
@@ -126,7 +106,7 @@ const Register = () => {
           <label>Profile Picture</label>
           <input
             type="file"
-            accept="image/*" 
+            accept="image/*" // Allow only image files
             onChange={(e) => setProfilePicture(e.target.files[0])}
             style={inputStyle} 
           />
@@ -142,7 +122,7 @@ const Register = () => {
           </div>
         )}
         <RegisterButton onClick={handleRegisterButtonClick} />
-      </form>
+      </div>
       <Link to="/">Back</Link>
     </div>
   );
