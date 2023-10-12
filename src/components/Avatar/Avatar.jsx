@@ -5,8 +5,14 @@ import { useAppContext } from "../../auth";
 import {FiChevronDown} from 'react-icons/fi';
 
 const Avatar = () => {
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
   const [userData, setUserData] = useState(null);
+
+  const [isBoxVisible, setIsBoxVisible] = useState(false);
+
+  const handleChevronClick = () => {
+    setIsBoxVisible(!isBoxVisible);
+  };
 
   useEffect(() => {
     user();
@@ -43,20 +49,29 @@ const Avatar = () => {
         :userData.customClaims.picture ;
 
   }
+  const handleLogOut = (screenName)=>{
+    dispatch({type:'LOGOUT', screen: screenName})
+  }
 
-  return (
+  return(
     <>
       {userData && (
         <s.ImageDiv>
-          <img
-            src={pictureUrl}
-            alt="Avatar"
-          />
+          
+          <img src={pictureUrl} alt="Avatar" />
           <span>{userData.customClaims.username}</span>
-          <p>
-           <FiChevronDown size={25} />
+          <p onClick={handleChevronClick}>
+            <FiChevronDown size={25} />
           </p>
         </s.ImageDiv>
+      )}
+
+      {isBoxVisible && (
+        <div style={{ position: 'absolute', top: '50px', left: '0', background: 'white', border: '1px solid #d6d3d2', paddingLeft: '20px', paddingRight: '20px', marginTop: '580px', marginLeft: '150px' }}>
+          {/* Content of the box */}
+          <div onClick={handleLogOut}>Logout</div>
+          {/* Add other content as needed */}
+        </div>
       )}
     </>
   );

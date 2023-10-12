@@ -3,6 +3,7 @@ import * as s from './style'
 import Avatar from '../Avatar/Avatar'
 import { useAppContext } from '../../auth'
 import {FiHome, FiFolder, FiUpload, FiSettings} from 'react-icons/fi'
+import { Button } from 'bootstrap'
  
 
 
@@ -12,6 +13,8 @@ const LeftMenu = () => {
   const handleScreenChange = (screenName)=>{
     dispatch({type:'SET_SCREEN', screen: screenName})
   }
+
+ 
 
   return (
   <s.Container>
@@ -41,7 +44,7 @@ const LeftMenu = () => {
       <span>Settings</span>
     </s.LeftMenuItem>
 
-    {/* <ButtonUser buttonName={"Logout"} buttonLink={"/"} /> */}
+     
     
   </s.LeftMenuDiv>
   <s.ContentDiv> 
