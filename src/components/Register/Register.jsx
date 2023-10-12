@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import { Link } from 'react-router-dom';
 
+
+const apiEndpoint = 'https://api-4uzdo5gwpq-uc.a.run.app/api/user/signup'; 
+
+
 const inputStyle = {
   border: '1px solid #ccc',
   borderRadius: '5px',
@@ -11,7 +15,7 @@ const inputStyle = {
 };
 
 const Register = () => {
-  // Define state variables for registration form fields
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [address, setAddress] = useState('');
@@ -19,17 +23,37 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  
+  const handleSubmit = async () => {
+    
+  
+    const users = new FormData();
+    users.append("username",username);
+    users.append("password",password);
+    users.append("address",address);
+    users.append("phone_number",phoneNumber);
+    users.append("email",email);
+    users.append("profile_picture", "N/A");
 
-    // Perform registration logic (e.g., send data to an API)
-    // You can add your registration logic here, using all the form fields
-
-    // Simulate storing the profile picture file
-    console.log('Profile Picture:', profilePicture);
-
-    // Clear form fields after submission
+  
+    try {
+    
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        body: users
+      });
+            console.log(response);
+      
+      if (response.status === 200) {
+        
+        console.log('Registration successful');
+      }
+    } catch (error) {
+      
+      console.error('Registration failed', error);
+    }
+  
+    
     setUsername('');
     setPassword('');
     setAddress('');
@@ -37,11 +61,10 @@ const Register = () => {
     setEmail('');
     setProfilePicture(null);
   };
+  
 
-  // Handle the registration button click
+
   const handleRegisterButtonClick = () => {
-    // You can add any specific logic related to the button click here
-    // For example, you can trigger form submission
     handleSubmit();
   };
 
@@ -56,17 +79,17 @@ const Register = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         <div className="form-group">
           <label>Password</label>
           <input
-            type="password"
+            type="text"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle}
           />
         </div>
         <div className="form-group">
@@ -76,7 +99,7 @@ const Register = () => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle}
           />
         </div>
         <div className="form-group">
@@ -86,7 +109,7 @@ const Register = () => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         <div className="form-group">
@@ -96,16 +119,16 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         <div className="form-group">
           <label>Profile Picture</label>
           <input
             type="file"
-            accept="image/*" // Allow only image files
+            accept="image/*" 
             onChange={(e) => setProfilePicture(e.target.files[0])}
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         {profilePicture && (
