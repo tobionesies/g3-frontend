@@ -11,8 +11,6 @@ ImageShare is a web application built with React.js, React-DOM, and Vite. It uti
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -53,19 +51,6 @@ Before you begin, ensure you have met the following requirements:
 ```
 
 4. Clone this repository:
-
-```js
-   const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_AUTH_DOMAIN",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_STORAGE_BUCKET",
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-        appId: "YOUR_APP_ID"
-    };
-```
-
-5. Clone this repository:
 
 ```bash
    npm run dev
