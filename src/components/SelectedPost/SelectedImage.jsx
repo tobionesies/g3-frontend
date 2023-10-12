@@ -18,9 +18,9 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
   
   useEffect(() => {
     if (singlePost) getUserById(singlePost?.user_id)
-  }, [singlePost])
+  }, [singlePost]);
+
   if (!isOpen) return null;
- 
  
   const convertDate = (date) => {
     return `${date?.getDate?.()}.${
@@ -31,6 +31,7 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
   const handleComment = () => {
     handlePostComment(singlePost, typedComment, accessToken);
     setTypedComment("");
+
   };
  
   return (

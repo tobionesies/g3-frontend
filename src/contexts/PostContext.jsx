@@ -6,6 +6,8 @@ export const PostProvider = ({ children }) => {
   const [singlePost, setSinglePost] = useState({});
   const [allPosts, setAllPosts] = useState([]);
   const [openPost, setOpenPost] = useState(false);
+
+  const [commentsOnPost, setCommentsOnPost] = useState();
  
   const getPostById = async (PostId, accessToken) => {
     try {
@@ -22,6 +24,7 @@ export const PostProvider = ({ children }) => {
       );
       const json = await response.json();
       setSinglePost(json);
+      setCommentsOnPost(json.comment)
     } catch (error) {
       console.log(error);
     }
@@ -91,6 +94,8 @@ export const PostProvider = ({ children }) => {
         setSinglePost,
         handleLike,
         handlePostComment,
+        commentsOnPost,
+        setCommentsOnPost,
       }}
     >
       {children}
