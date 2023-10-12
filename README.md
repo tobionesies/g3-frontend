@@ -34,13 +34,13 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository:
 
 ```bash
-   git clone https://github.com/yourusername/imageshare-app.git
+   git clone https://github.com/yourusername/g3-frontend.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-   cd imageshare-app
+   cd g3-frontend
 ```
 
 3. Install the project dependencies:
