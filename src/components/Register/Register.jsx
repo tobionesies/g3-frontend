@@ -22,18 +22,33 @@ const Register = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null)
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async() => {
+    const users = new FormData();
+    users.append("username",username);
+    users.append("password",password);
+    users.append("address",address);
+    users.append("phone_number",phoneNumber);
+    users.append("email",email);
+    users.append("picture", profilePicture);
+  
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        body: users
+      });
 
-    // Perform registration logic (e.g., send data to an API)
-    // You can add your registration logic here, using all the form fields
-
-    // Simulate storing the profile picture file
-    console.log('Profile Picture:', profilePicture);
-
-    // Clear form fields after submission
+      if (response.ok) {
+        console.log('Registration successful');
+        window.location.href='/'
+      }
+    } catch (error) {
+      setErrorMessage('Failed to register you!')
+      console.error('Registration failed', error);
+    }
+    
     setUsername('');
     setPassword('');
     setAddress('');
@@ -41,8 +56,6 @@ const Register = () => {
     setEmail('');
     setProfilePicture(null);
   };
-  
-
 
   const handleRegisterButtonClick = () => {
     handleSubmit();
@@ -109,6 +122,7 @@ const Register = () => {
             accept="image/*" // Allow only image files
             onChange={(e) => setProfilePicture(e.target.files[0])}
             style={inputStyle} 
+            required
           />
         </div>
         {profilePicture && (
@@ -121,6 +135,7 @@ const Register = () => {
             />
           </div>
         )}
+          {errorMessage && <div style={{color: 'red'}}>{errorMessage}</div>}
         <RegisterButton onClick={handleRegisterButtonClick} />
       </div>
       <Link to="/">Back</Link>
