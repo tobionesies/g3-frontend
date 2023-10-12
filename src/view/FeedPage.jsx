@@ -33,7 +33,7 @@ const FeedPage = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0', postion:'relative' }}>
     <LeftMenu />
     <div style={styles.main}>
-      {state.screen.FEEDPAGE && <Content contentValue={'feed'} />}
+      {state.screen.FEEDPAGE && <Content />}
       {state.screen.UPLOADIMAGE && <UploadImage />}
       {state.screen.MYIMAGE && <MyImages />}
       {state.screen.SINGLEPOST && <SinglePost />}
