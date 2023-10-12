@@ -34,7 +34,7 @@ const MyImages = ({ userId }) => {
   const userPosts = allPosts.filter((post) => post.user_id === state.credential.credentials.userId);
 
   return (
-    <div>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
       {userPosts.map((post, index) => (
         <ImagePost key={index} post={post} />
       ))}
