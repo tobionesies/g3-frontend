@@ -7,10 +7,8 @@ import { colors } from "../theme";
 import { useAppContext } from "../auth";
 
 const LandingPage = () => {
-  // const [textLoginName, setTextLoginName] = useState("");
-  const [textLoginName, setTextLoginName] = useState("tobias@gmail.com");
-  // const [textPassWord, setTextPassWord] = useState("");
-  const [textPassWord, setTextPassWord] = useState("123456");
+  const [textLoginName, setTextLoginName] = useState("");
+  const [textPassWord, setTextPassWord] = useState("");
   const {state, dispatch} = useAppContext();
 
   const handleLoginNameChange = (value) => {
