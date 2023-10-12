@@ -10,7 +10,7 @@ import { FiHeart, FiShare2 } from 'react-icons/fi'
 import {FaRegComment} from 'react-icons/fa'
 
  
-const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
+const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId, likeTrack, setlikeTrack}) => {
   const {state} = useAppContext(AuthContext);
   const [myLikes, setMyLikes] = useState(false);
 
@@ -34,11 +34,11 @@ const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
       }
  
       postAPI.likes.forEach((post) => {
-        if (post.userId === state.credential.credentials.userId) {
-          setMyLikes(true)
+        if (post.user_id === state.credential.credentials.userId) {
+          setlikeTrack(1)
           
         } else {
-          setMyLikes(false)
+          setlikeTrack(0)
         }
       });
       
@@ -50,6 +50,7 @@ const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
   useEffect(() => {
     // if (post?.user_id) usersContext.getUserById(post.user_id)
     getPost()
+    
   }, []);
 
 
@@ -81,10 +82,10 @@ const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
 
   return (
     <s.Container>
-    <div>
+    <div onClick={handleLike}>
       <span>{numOfLikes || ''} likes{' '}</span>
       {
-        numOfLikes === 0 ? <FiHeart size={20} />: <BsFillSuitHeartFill size={20} color={'red'}/>
+        likeTrack === 0 ? <FiHeart size={20} />: <BsFillSuitHeartFill size={20} color={'red'}/>
       }
       
     </div>
