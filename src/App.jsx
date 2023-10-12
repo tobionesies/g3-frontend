@@ -1,35 +1,30 @@
 import { Routes, Route } from "react-router-dom";
 import FeedPage from "./view/FeedPage";
 import LandingPage from "./view/LandingPage";
-import { AuthProvider } from "./contexts/Context";
-import Settingspage from "./components/Settings/settings";
+import {useAppContext} from './auth'
 import Register from "./components/Register/Register";
-import RightMenu from "./components/RightMenu/RightMenu";
-import UploadImage from "./view/UploadImage";
-import MyImages from "./view/MyImages";
-import SinglePost from "./view/SinglePost";
+//import RightMenu from "./components/RightMenu/RightMenu";
 import { UserProvider } from "./contexts/UserContext";
 import { PostProvider } from "./contexts/PostContext";
+
  
 function App() {
+  const {state} = useAppContext()
+  const auth = ()=>{
+    if(state.credential.isAuthenticated){
+      return <FeedPage />
+    }else{
+      return <LandingPage />
+    }
+  }
   return (
-    <>
-      <AuthProvider>
         <UserProvider>
           <PostProvider>
             <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/view/FeedPage" element={<FeedPage />} />
-              <Route path="/settings" element={<Settingspage />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/view/UploadImage" element={<UploadImage />} />
-              <Route path="/view/MyImages" element={<MyImages />} />
-              <Route path="/view/SinglePost" element={<SinglePost />} />
+              <Route path="/" element={auth()} />
             </Routes>
           </PostProvider>
         </UserProvider>
-      </AuthProvider>
-    </>
   );
 }
  

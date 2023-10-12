@@ -2,7 +2,7 @@ import styled from 'styled-components'
  
 export const TextFieldDiv = styled.div`
     display: flex;
-    /* width: 350px;
+    width: 450px;
     height: 60px; */
 `
 export const TextInput = styled.input`
@@ -13,7 +13,7 @@ export const TextInput = styled.input`
     /* border: solid black 1px; */
     /* border-radius: 10px;  */
     background-color: #f0f2f5;
-    width: 340px;
+    width: 450px;
     padding: 5px;
     padding-left: 10px;
     border-radius: 8px;

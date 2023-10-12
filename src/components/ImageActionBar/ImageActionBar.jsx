@@ -1,36 +1,40 @@
-import React,{useContext, useEffect, useState} from 'react'
+import { useEffect, useState} from 'react'
 import * as s from './style'
 import heartRegular from '../../assets/heartRegular.svg'
 import heartSolid from '../../assets/heartSolid.svg'
 import commentRegular from '../../assets/commentRegular.svg'
 import { AuthContext } from '../../contexts/Context'
-import { UserContext } from '../../contexts/UserContext'
+import { useAppContext } from '../../auth'
+import { BsFillSuitHeartFill } from 'react-icons/bs'
+import { FiHeart, FiShare2 } from 'react-icons/fi'
+import {FaRegComment} from 'react-icons/fa'
 
  
 const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
-  const {LoginId} = useContext(AuthContext);
-  const {accessToken} = useContext(UserContext);
+  const {state} = useAppContext(AuthContext);
   const [myLikes, setMyLikes] = useState(false);
 
 
   const getPost = async () => {
-    console.log('get single post')
-    
     try {
       const response = await fetch(
         'https://api-4uzdo5gwpq-uc.a.run.app/api/post/' + postId,
         {
-          method: 'GET', headers: {
-            'authorization': accessToken
-            // Add other headers if needed
-          },
+          method: 'GET',
+          headers:{
+            authorization: `${state.credential.credentials.token}`
+          }
         }
       );
+      let postAPI
+      if(response.ok){
+        postAPI = await response.json();
+      }else{
+        return
+      }
  
-      const postAPI = await response.json();
-      
       postAPI.likes.forEach((post) => {
-        if (post.id === LoginId) {
+        if (post.userId === state.credential.credentials.userId) {
           setMyLikes(true)
           
         } else {
@@ -77,13 +81,22 @@ const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
 
   return (
     <s.Container>
-    {numOfLikes || 0} likes{' '}
-    <img
-      src={numOfLikes === 0 ? heartRegular : heartSolid}
-      style={{ height: '20px', marginRight: '16px', cursor: 'pointer' }}
-      onClick={handleLike}
-    />
-    {numOfComments || 0} comment <img src={commentRegular} style={{ height: '20px', marginRight: '16px' }} />
+    <div>
+      <span>{numOfLikes || ''} likes{' '}</span>
+      {
+        numOfLikes === 0 ? <FiHeart size={20} />: <BsFillSuitHeartFill size={20} color={'red'}/>
+      }
+      
+    </div>
+    <div>
+      <span>{numOfComments || ''} comment </span>
+      <FaRegComment size={20}/>
+    </div>
+    <div>
+      <span>Share </span>
+      <FiShare2 size={20}/>
+    </div>
+  
   </s.Container>
   )
 }

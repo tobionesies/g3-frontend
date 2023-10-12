@@ -13,28 +13,47 @@ import ImagePost from '../components/ImagePost/ImagePost'
 import Content from '../components/Content/Content'
 import SelectedPost from '../components/SelectedPost/SelectedImage'
 import { PostContext } from '../contexts/PostContext'
-import { UserContext } from '../contexts/UserContext'
+import { useAppContext } from '../auth'
+import UploadImage from "./UploadImage";
+import MyImages from "./MyImages";
+import SinglePost from "./SinglePost";
+import Settingspage from "../components/Settings/settings";
  
 const FeedPage = () => {
-  const {ImageFilter} = useContext(AuthContext)
-  const {openPost, setOpenPost} = useContext(PostContext);
+  /* const {ImageFilter} = useContext(AuthContext)
+  const {openPost, setOpenPost} = useContext(PostContext); */
+  // console.log(openPost)
+ 
+  // const closeSelectedPost = () => setOpenPost(false);
+ 
+  //console.log('Nuvarande filter = ' + ImageFilter)
+  const {state} = useAppContext()
 
-  console.log(openPost)
- 
-  const closeSelectedPost = () => setOpenPost(false);
- 
-  console.log('Nuvarande filter = ' + ImageFilter)
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0', postion:'relative' }}>
     <LeftMenu />
-    {/* <ImagePost /> */}
-    <SelectedPost isOpen={openPost} onClose={closeSelectedPost} />
-    <Content contentValue={'feed'} />
+    <div style={styles.main}>
+      {state.screen.FEEDPAGE && <Content />}
+      {state.screen.UPLOADIMAGE && <UploadImage />}
+      {state.screen.MYIMAGE && <MyImages />}
+      {state.screen.SINGLEPOST && <SinglePost />}
+      {state.screen.SETTINGS && <Settingspage />}
+      {/* <ImagePost /> */}
+      {/* <SelectedPost isOpen={openPost} onClose={closeSelectedPost} /> */}
+    </div>
     <RightMenu />
   </div>
  
   )
 }
- 
+
+const styles = {
+  main:{
+    width: '100%',
+    marginLeft: '250px',
+    marginRight: '250px',
+  }
+}
+
 export default FeedPage
  

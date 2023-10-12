@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import * as s from './style';
-import { AuthContext } from '../../contexts/Context';
 
 const RightMenu = () => {
-  const { ImageFilter, setImageFilter } = useContext(AuthContext);
 
   const handleMenuItemClick = (category) => {
-   setImageFilter(category);
+ 
   };
 
   return (
@@ -25,7 +23,7 @@ const RightMenu = () => {
         <s.RightMenuItem onClick={() => handleMenuItemClick('Humor')}>Humor</s.RightMenuItem>
         <s.RightMenuItem onClick={() => handleMenuItemClick('Show all')}>Show all</s.RightMenuItem>
         <s.RightMenuItem>
-          Current filter: {ImageFilter}
+          Current filter: 
         </s.RightMenuItem>
       </s.RightMenuDiv>
     </s.Container>
