@@ -3,6 +3,7 @@ import { useAppContext } from "../auth";
 
 const UploadImage = () => {
   const [image, setImage] = useState(null);
+  const [imageLocal, setImageLocal] = useState(null);
   const [text, setText] = useState("");
   const [category, setCategory] = useState("");
   const { state } = useAppContext();
@@ -14,9 +15,13 @@ const UploadImage = () => {
     formData.append('text',text)
     formData.append('image',image)
     formData.append('user_id', state.credential.credentials.userId)
-    
+
+    if(image === null){
+      alert("Please upload an image")
+    }
+
     const res = await fetch(
-      "http://localhost:3000/api/post",
+      "https://api-4uzdo5gwpq-uc.a.run.app/api/post",
       {
         method: "POST",
         headers: {
@@ -38,12 +43,13 @@ const UploadImage = () => {
     e.preventDefault();
 
     let file = e.dataTransfer.files[0];
+    setImage(file)
 
     if (file && file.type.match(/^image\//)) {
       const reader = new FileReader();
 
       reader.onload = function (evt) {
-        setImage(evt.target.result);
+        setImageLocal(evt.target.result);
       };
 
       reader.readAsDataURL(file);
@@ -54,12 +60,12 @@ const UploadImage = () => {
 
   const handleChange = (e) => {
     let file = e.target.files[0];
-
+    setImage(file)
     if (file && file.type.match(/^image\//)) {
       const reader = new FileReader();
 
       reader.onload = function (evt) {
-        setImage(evt.target.result);
+        setImageLocal(evt.target.result);
       };
 
       reader.readAsDataURL(file);
@@ -87,7 +93,7 @@ const UploadImage = () => {
         </div>
         <div style={styles.imageContainer}>
           {image ? (
-            <img src={image} alt="Uploaded" style={styles.uploadedImage} />
+            <img src={imageLocal} alt="Uploaded" style={styles.uploadedImage} />
           ) : (
             <span>
               Drag & Drop or{" "}
@@ -102,6 +108,7 @@ const UploadImage = () => {
             type="file"
             onChange={handleChange}
             style={{ display: "none" }}
+            
           />
         </div>
 
