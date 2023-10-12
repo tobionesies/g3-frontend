@@ -22,6 +22,7 @@ function App() {
           <PostProvider>
             <Routes>
               <Route path="/" element={auth()} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </PostProvider>
         </UserProvider>
