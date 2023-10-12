@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import { Link } from 'react-router-dom';
+
+
+const apiEndpoint = 'https://api-4uzdo5gwpq-uc.a.run.app/api/user/signup'; 
+
 
 const inputStyle = {
   border: '1px solid #ccc',
@@ -37,18 +41,17 @@ const Register = () => {
     setEmail('');
     setProfilePicture(null);
   };
+  
 
-  // Handle the registration button click
+
   const handleRegisterButtonClick = () => {
-    // You can add any specific logic related to the button click here
-    // For example, you can trigger form submission
     handleSubmit();
   };
 
   return (
     <div style={styles.container} className="register-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <div>
         <div className="form-group">
           <label>Username</label>
           <input
@@ -56,17 +59,17 @@ const Register = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         <div className="form-group">
           <label>Password</label>
           <input
-            type="password"
+            type="text"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle}
           />
         </div>
         <div className="form-group">
@@ -76,7 +79,7 @@ const Register = () => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle}
           />
         </div>
         <div className="form-group">
@@ -86,7 +89,7 @@ const Register = () => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         <div className="form-group">
@@ -96,7 +99,7 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         <div className="form-group">
@@ -105,7 +108,7 @@ const Register = () => {
             type="file"
             accept="image/*" // Allow only image files
             onChange={(e) => setProfilePicture(e.target.files[0])}
-            style={inputStyle} // Apply the shared style here
+            style={inputStyle} 
           />
         </div>
         {profilePicture && (
@@ -119,7 +122,7 @@ const Register = () => {
           </div>
         )}
         <RegisterButton onClick={handleRegisterButtonClick} />
-      </form>
+      </div>
       <Link to="/">Back</Link>
     </div>
   );
