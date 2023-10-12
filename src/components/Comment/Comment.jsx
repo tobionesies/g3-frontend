@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import * as s from './style'
 import { UserContext } from "../../contexts/UserContext";
 import { PostContext } from "../../contexts/PostContext";
-import Avatar from "../Avatar/Avatar";
+import userRegular from "../../assets/userRegular.svg";
 
 // Avatar
 // Name Text TimeSent
@@ -15,11 +15,16 @@ const Comment = ({image, userName, comment, date}) => {
     }.${date?.getFullYear?.()} ${date?.getHours?.()}:${date?.getMinutes?.()}`;
   };
 
+
   return (
     <s.CommentDiv>
       <s.LeftCol>
         <s.AvatarItem>
-          <Avatar image={"image here"} height={"50px"} width={"50px"}/>
+          {/* <Avatar image={"image here"} height={"50px"} width={"50px"}/> */}
+          {/* <img
+            src="./../../assets/userRegular.svg"
+            alt="Avatar"
+          /> */}
         </s.AvatarItem>
       </s.LeftCol>
       <s.RightCol>

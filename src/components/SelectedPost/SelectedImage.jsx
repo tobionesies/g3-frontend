@@ -53,12 +53,15 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
             <div>
               <div style={{ fontWeight: "bold" }}>{singlePost.user_id}</div>
               <div>{convertDate(new Date(singlePost?.created_at))}</div>
-              {singlePost.id}
+
             </div>
           </s.Informations>
           <img
             src={singlePost.image}
-            style={{ height: "200px", width: "350px", paddingTop: "10px" }}
+            style={{ width: "75%",
+            paddingTop: '10px',
+            paddingInline: "auto",
+            aspectRatio: "1/1;"  }}
             alt="Logo"
           />
         </s.LeftCol>
