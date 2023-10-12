@@ -1,8 +1,38 @@
 import { useState } from "react";
+import { useAppContext } from "../auth";
 
 const UploadImage = () => {
   const [image, setImage] = useState(null);
   const [text, setText] = useState("");
+  const [category, setCategory] = useState("");
+  const { state } = useAppContext();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const formData = new FormData();
+    formData.append('category',category)
+    formData.append('text',text)
+    formData.append('image',image)
+    formData.append('user_id', state.credential.credentials.userId)
+    
+    const res = await fetch(
+      "http://localhost:3000/api/post",
+      {
+        method: "POST",
+        headers: {
+          authorization: state.credential.credentials.token,
+        },
+        body:formData
+      }
+    );
+
+    if(res.ok){
+      alert('post successfully created!!')
+    }else{
+      console.log(res)
+      alert('ops something went wrong!!')
+    }
+  }; //end of handleSubmit
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -45,16 +75,26 @@ const UploadImage = () => {
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
       >
-      <div style={styles.textContainer}>
-          <input type="text" style={{width: '100%', height: '30px'}} placeholder="category" />
+        <div style={styles.textContainer}>
+          <input
+            type="text"
+            style={{ width: "100%", height: "30px" }}
+            placeholder="category"
+            value={category}
+            onChange={(e)=>setCategory(e.target.value)}
+            required
+          />
         </div>
         <div style={styles.imageContainer}>
           {image ? (
             <img src={image} alt="Uploaded" style={styles.uploadedImage} />
           ) : (
             <span>
-              Drag & Drop or <label htmlFor="file-upload" style={{color:'blue'}}>Upload</label> an
-              Image
+              Drag & Drop or{" "}
+              <label htmlFor="file-upload" style={{ color: "blue" }}>
+                Upload
+              </label>{" "}
+              an Image
             </span>
           )}
           <input
@@ -74,7 +114,7 @@ const UploadImage = () => {
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
       </form>
     </div>
   );
