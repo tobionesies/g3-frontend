@@ -14,6 +14,9 @@ export const PostHeader = styled.div`
      justify-content: flex-start;
      align-items: center; 
      gap: 10px;
+     & > div{
+      margin-left: auto;
+     }
 `
 export const UserImage = styled.img`
       padding-top: '10px';
