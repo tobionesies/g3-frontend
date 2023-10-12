@@ -64,12 +64,14 @@ Before you begin, ensure you have met the following requirements:
         appId: "YOUR_APP_ID"
     };
 ```
+
 5. Clone this repository:
 
 ```bash
    npm run dev
 ```
-## Usage
+### Usage
+
 - Create an account or sign in to ImageShare using Firebase Authentication.
 - Upload images along with captions.
 - View, like, and comment on images shared by other users.
