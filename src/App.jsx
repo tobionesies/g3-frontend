@@ -22,12 +22,6 @@ function App() {
           <PostProvider>
             <Routes>
               <Route path="/" element={auth()} />
-              {/* <Route path="/view/FeedPage" element={<FeedPage />} />
-              <Route path="/settings" element={<Settingspage />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/view/UploadImage" element={<UploadImage />} />
-              <Route path="/view/MyImages" element={<MyImages />} />
-              <Route path="/view/SinglePost" element={<SinglePost />} /> */}
             </Routes>
           </PostProvider>
         </UserProvider>

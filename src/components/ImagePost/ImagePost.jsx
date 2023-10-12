@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
-import ImageActionBar from '../ImageActionBar/ImageActionBar';
-import TextField from '../TextField/TextField';
-import ButtonUser from '../Button/ButtonUser';
-import Comment from '../Comment/Comment';
-import userRegular from '../../assets/userRegular.svg';
-import { UserContext } from '../../contexts/UserContext';
-import { PostContext } from '../../contexts/PostContext';
-import * as s from './styled'
+import React, { useContext, useEffect, useState } from "react";
+import ImageActionBar from "../ImageActionBar/ImageActionBar";
+import TextField from "../TextField/TextField";
+import ButtonUser from "../Button/ButtonUser";
+import Comment from "../Comment/Comment";
+import userRegular from "../../assets/userRegular.svg";
+import { UserContext } from "../../contexts/UserContext";
+import { PostContext } from "../../contexts/PostContext";
+import Post from "./Post"
+import * as s from "./styled";
 
 const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
   /* const usersContext = useContext(UserContext);
   const {LoginId} = useContext(AuthContext); */
   const { setOpenPost, setSinglePost } = useContext(PostContext);
   const [likes, setLikes] = useState(post.likes.length);
-
 
   const handleLike = async () => {
     try {
@@ -37,7 +37,9 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
       const updatedPost = await response.json();
 
       // Find the like with the matching user_id (LoginId)
-      const likedByUser = updatedPost.likes.find((like) => like.user_id === "done");
+      const likedByUser = updatedPost.likes.find(
+        (like) => like.user_id === "done"
+      );
 
       if (likedByUser) {
         // If liked by the user, increase likes by 1
@@ -47,7 +49,7 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
         setLikes(likes - 1);
       }
 
-      console.log('like finished');
+      console.log("like finished");
     } catch (error) {
       console.error("Error during like:", error);
     }
@@ -63,16 +65,30 @@ const ImagePost = ({ image, openPost, postInView, setPostInView, post }) => {
   };
 
   return (
-    <s.Container >
-      <div  onClick={() => handleClick()}>
-        <img src={userRegular} style={{ height: '20px', width: '35px', paddingTop: '10px' }} alt="Logo" />
-        Posted by <b>{post.user_id}</b>
-        <img src={post.image} style={{ width: '350px', paddingTop: '10px' }} alt="Logo" />
-        <p>{post.text}</p>
+    <s.Container>
+      <div onClick={() => handleClick()}>
+        <s.PostHeader>
+          <s.UserImage
+            src={post.image ? post.image : userRegular}
+            alt="avatar"
+          />
+          <span>Posted by <b>{post.user_id}</b></span>
+        </s.PostHeader>
+        <Post text={post.text} />
+        <s.ImagePostContainer >
+          <s.PostImage
+            src={post.image}
+            loading="lazy"
+            alt={post.category}
+          />
+        </s.ImagePostContainer>
       </div>
-      <ImageActionBar numOfLikes={likes} numOfComments={post.comment?.length} postId={post.id} handleLike={handleLike}/>
-      <TextField />
-      <ButtonUser buttonName={'Post'} />
+      <ImageActionBar
+        numOfLikes={likes}
+        numOfComments={post.comment?.length}
+        postId={post.id}
+        handleLike={handleLike}
+      />
       {/* <Comment /> */}
     </s.Container>
   );

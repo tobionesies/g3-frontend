@@ -16,22 +16,25 @@ const ImageActionBar = ({numOfLikes, numOfComments, handleLike, postId}) => {
 
 
   const getPost = async () => {
-    console.log('get single post')
     try {
       const response = await fetch(
         'https://api-4uzdo5gwpq-uc.a.run.app/api/post/' + postId,
         {
           method: 'GET',
           headers:{
-            authorization: `${state.credentials.token}`
+            authorization: `${state.credential.credentials.token}`
           }
         }
       );
+      let postAPI
+      if(response.ok){
+        postAPI = await response.json();
+      }else{
+        return
+      }
  
-      const postAPI = await response.json();
-      console.log(postAPI[0].likes)
       postAPI.likes.forEach((post) => {
-        if (post.id === state.credentials.userId) {
+        if (post.userId === state.credential.credentials.userId) {
           setMyLikes(true)
           
         } else {

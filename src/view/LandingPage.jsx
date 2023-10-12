@@ -26,7 +26,7 @@ const LandingPage = () => {
       return;
     }
   
-    const response = await fetch('http://localhost:3000/api/user/signin', {
+    const response = await fetch('https://api-4uzdo5gwpq-uc.a.run.app/api/user/signin', {
       method: 'POST',
       body: JSON.stringify({ email: textLoginName, password: textPassWord }),
       headers: { 'Content-Type': 'application/json' },
