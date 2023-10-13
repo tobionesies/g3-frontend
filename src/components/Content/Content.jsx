@@ -6,6 +6,7 @@ import { useQuery} from "react-query";
 import SelectedPost from '../SelectedPost/SelectedImage'
 import SkeletonLoader from "./SkeletonLoader";
 import { PostContext } from "../../contexts/PostContext";
+import A from '../../Utilities/SortData.js'
 
 const Content = ({ setPostInView }) => {
   const { state } = useAppContext();
@@ -28,21 +29,23 @@ const Content = ({ setPostInView }) => {
 
   const { data, error, isLoading } = useQuery("posts", getPosts);
 
+  
   if (isLoading)
-    return (
-      <div>
+  return (
+    <div>
         <SkeletonLoader />
         <SkeletonLoader />
       </div>
     );
-  if (error) return <div>Error: {error.message}</div>;
-
+    if (error) return <div>Error: {error.message}</div>;
+    
+    const sortedData = A.sortDataByTimeCreated(data)
       
 
   return (
     <s.Container>
       <s.ContentDiv>
-        {data.map((post, index) => (
+        {sortedData.map((post, index) => (
           <ImagePost
             key={index}
             post={post}

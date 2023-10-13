@@ -1,7 +1,7 @@
 /* Settings.css */
 .settings-container {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 5px auto;
     padding: 20px;
     background-color: #f7f7f7;
     border: 1px solid #ccc;
@@ -35,7 +35,7 @@
   }
   
   .form-control {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;

@@ -4,7 +4,6 @@ import ArrowButton from '../ArrowButton/ArrowButton';
 const Settings = () => {
   return (
     <div className="settings-container">
-        <ArrowButton/>
       <h2>Settings</h2>
 
       

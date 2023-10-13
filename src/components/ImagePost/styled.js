@@ -36,4 +36,5 @@ export const PostImage =styled.img`
      padding-top: '10px'
      padding-inline: auto;
      aspect-ratio: 1/1;
+     object-fit: cover;
 `

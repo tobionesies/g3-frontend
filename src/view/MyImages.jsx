@@ -1,9 +1,8 @@
 import React from "react";
-import ImagePost from "../components/ImagePost/ImagePost";
 import { useAppContext } from "../auth";
 import { useQuery } from "react-query";
 
-const MyImages = ({ userId }) => {
+const MyImages = () => {
   const { state } = useAppContext();
 
   const getPosts = async () => {
@@ -19,22 +18,42 @@ const MyImages = ({ userId }) => {
     return await response.json();
   };
 
-  const { data: allPosts, error, isLoading } = useQuery("posts", getPosts);
-
-  if (isLoading)
+  const ImagePost = ({ post }) => {
     return (
-      <div>
-        
-        Loading...
+      <div >
+        <img src={post.image} 
+        loading="lazy"
+         alt={post.category}
+         style={{
+          aspectRatio: '1/1',
+          width:'300px',
+          objectFit: 'cover'
+         }}
+          />
       </div>
     );
+  };
+
+  const { data: allPosts, error, isLoading } = useQuery("posts", getPosts);
+
+  if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   // Check if allPosts is defined before filtering it
-  const userPosts = allPosts.filter((post) => post.user_id === state.credential.credentials.userId);
+  const userPosts = allPosts.filter(
+    (post) => post.user_id === state.credential.credentials.userId
+  );
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', margin: '0', padding: '0' }}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+        margin: "10px",
+        gap: '10px',
+        padding: "0",
+      }}
+    >
       {userPosts.map((post, index) => (
         <ImagePost key={index} post={post} />
       ))}

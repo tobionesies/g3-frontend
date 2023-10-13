@@ -13,19 +13,22 @@ export const UsernameItem = styled.span`
 
 `
 export const CommentText = styled.p`
-    /* padding: 5px; */
+     margin-left: 10px; 
+     margin-top: -5px;
 `
 export const TimeItem = styled.span`
 
 `
 export const LeftCol = styled.div`
-flex: 1;
 display: flex;
 justify-content: center;
-align-items: center;
+align-items: flex-start;
+padding-left: 10px;
 `
 export const RightCol = styled.div`
-flex: 3;
+flex:3;
+margin-left: 5px;
 justify-content: flex-start;
+align-items: center;
 
 `

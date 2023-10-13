@@ -42,7 +42,6 @@ export const Informations = styled.div`
  
 export const RightCol = styled.div`
   flex: 1;
-  padding: 10px;
 `;
 export const CloseBtn = styled.div`
   position: absolute;
@@ -68,7 +67,7 @@ export const CommentUsername = styled.div`
 export const CommentContent = styled.div``;
 export const AllCommentsContainer = styled.div`
   display: flex;
-  height: 300px;
+  height: 355px;
   overflow-y: scroll;
   flex-direction: column;
   gap: 12px;

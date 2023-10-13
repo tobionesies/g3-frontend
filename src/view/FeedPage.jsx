@@ -32,9 +32,9 @@ const FeedPage = () => {
 
 const styles = {
   main:{
-    width: '100%',
-    marginLeft: '250px',
-    marginRight: '250px',
+    width: '50%',
+    marginLeft: '25%',
+    marginRight: '25%',
   }
 }
 

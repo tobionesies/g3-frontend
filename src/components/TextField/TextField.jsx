@@ -1,7 +1,7 @@
 import React from "react";
 import * as s from "./style";
 
-const TextField = ({ value, onChange, type, placeholder }) => {
+const TextField = ({ value, onChange, type, placeholder,  }) => {
   const handleChange = (event) => {
     onChange(event.target.value);
   };

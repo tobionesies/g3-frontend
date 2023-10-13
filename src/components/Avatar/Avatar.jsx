@@ -31,7 +31,6 @@ const Avatar = () => {
     if (res.ok) {
       let data = await res.json();
       setUserData(data);
-      console.log(data)
     } else {
       alert(`
       Oops!!!\n
