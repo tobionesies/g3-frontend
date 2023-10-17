@@ -25,6 +25,7 @@ const SelectedPost = ({ isOpen, onClose, postInView }) => {
 
   useEffect(()=>{
     const url = "https://api-4uzdo5gwpq-uc.a.run.app/api/user/"
+    console.log(singlePost)
     GETUSER(url,singlePost.user_id , state.credential.credentials.token)
     .then((data) => {
       setPostUser(data)
